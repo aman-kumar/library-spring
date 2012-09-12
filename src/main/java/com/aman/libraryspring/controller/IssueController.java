@@ -26,16 +26,34 @@ import com.aman.libraryspring.service.IssueService;
 public class IssueController {
     @Autowired
     private IssueService issueService;
-    Student student = new Student();
-    Record record = new Record();
+
+    Student student;
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Record getRecord() {
+        return record;
+    }
+
+    public void setRecord(Record record) {
+        this.record = record;
+    }
+
+    Record record;
 
     @RequestMapping(value = "/Issue", method = RequestMethod.GET)
     public ModelAndView handleRequest(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
 
-        student.setFirstName(request.getParameter("firstName"));
-        student.setLastName(request.getParameter("lastName"));
-        record.setBookRecord(request.getParameter("bookRecord"));
+       // student.setFirstName(request.getParameter("firstName"));
+       // student.setLastName(request.getParameter("lastName"));
+      //  record.setBookRecord(request.getParameter("bookRecord"));
         Map<String, Object> myModel = new HashMap<String, Object>();
         myModel.put("student", student);
         myModel.put("record", record);
