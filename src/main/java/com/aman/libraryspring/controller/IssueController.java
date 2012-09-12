@@ -1,7 +1,14 @@
 package com.aman.libraryspring.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,10 +26,21 @@ import com.aman.libraryspring.service.IssueService;
 public class IssueController {
     @Autowired
     private IssueService issueService;
+    Student student = new Student();
+    Record record = new Record();
 
-    @RequestMapping(value = "/issue", method = RequestMethod.GET)
-    public ModelAndView issue() {
-        return new ModelAndView("Issue", "command", new Student());
+    @RequestMapping(value = "/Issue", method = RequestMethod.GET)
+    public ModelAndView handleRequest(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+
+        student.setFirstName(request.getParameter("firstName"));
+        student.setLastName(request.getParameter("lastName"));
+        record.setBookRecord(request.getParameter("bookRecord"));
+        Map<String, Object> myModel = new HashMap<String, Object>();
+        myModel.put("student", student);
+        myModel.put("record", record);
+        return new ModelAndView("Issue", "command", myModel);
+
     }
 
     List<Record> recordList = new ArrayList<Record>();
@@ -35,7 +53,7 @@ public class IssueController {
         issueService.updateRecord();
         recordList = issueService.getUpdatedRecord();
         model.addAttribute("recordList", recordList);
-        return "issueDetails";
+        return "IssueDetails";
 
     }
 }

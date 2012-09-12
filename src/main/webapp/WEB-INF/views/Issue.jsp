@@ -21,8 +21,8 @@
 				<td><form:input path="lastName" size="35"></form:input></td>
 			</tr>
 			<tr>
-				<td><form:label path="bookRecordId">BookRecordID</form:label></td>
-				<td><form:input path="bookRecordId" size="35"></form:input></td>
+				<td><form:label path="bookRecord">BookRecordID</form:label></td>
+				<td><form:input path="bookRecord" size="35"></form:input></td>
 			</tr>
 
 			<tr>

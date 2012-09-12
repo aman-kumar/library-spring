@@ -21,7 +21,7 @@ public class BookDao {
     public BookDao() {
         Driver driver = new jdbcDriver();
         DataSource dataSource = new SimpleDriverDataSource(driver,
-                "jdbc:hsqldb:librarymanagementsystem199; user=SA");
+                "jdbc:hsqldb:mem:aname; user=SA");
         jdbcTemplate = new JdbcTemplate(dataSource);
 
     }
@@ -29,7 +29,7 @@ public class BookDao {
     public void createBook(Book book) {
         jdbcTemplate.update(
                 "INSERT into Book values(?,?,?,?,?,?)",
-                new Object[] { new String(book.getBookId()),
+                new Object[] {new String(book.getBookId()),
                         new String(book.getName()),
                         new String(book.getAuthor()),
                         new String(book.getDescription()),
@@ -64,8 +64,8 @@ public class BookDao {
     public List<Book> searchBook(Book book) {
 
         return jdbcTemplate
-                .query("SELECT bookId,name,author,publication,description,noOfCopies from Book WHERE author=? and name=?",new Object[] {new String(book.getAuthor()), 
-                                new String(book.getName())},
-                        new BookMapper());
+                .query("SELECT bookId,name,author,publication,description,noOfCopies from Book WHERE author=? and name=?",
+                        new Object[] {new String(book.getAuthor()),
+                                new String(book.getName()) }, new BookMapper());
     }
 }

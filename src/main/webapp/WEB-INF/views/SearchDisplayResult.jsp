@@ -51,7 +51,7 @@
 	<br> The book can be issued
 	<br>
 	<br>
-	<a href="issue">issueBook</a>
+	<a href="Issue">issueBook</a>
 	<%
 	    } else {
 	%>

@@ -21,7 +21,7 @@ public class StudentDao {
     public StudentDao() {
         Driver driver = new jdbcDriver();
         DataSource dataSource = new SimpleDriverDataSource(driver,
-                "jdbc:hsqldb:librarymanagementsystem199; user=SA");
+                "jdbc:hsqldb:mem:aname; user=SA");
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

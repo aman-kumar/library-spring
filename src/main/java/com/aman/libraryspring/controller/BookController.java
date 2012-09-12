@@ -42,8 +42,8 @@ public class BookController {
             e.printStackTrace();
         }
         try {
-            con = DriverManager.getConnection(
-                    "jdbc:hsqldb:librarymanagementsystem199", "SA", "");
+            con = DriverManager
+                    .getConnection("jdbc:hsqldb:mem:aname", "sa", "");
             System.out
                     .println("successfully connected to the database now it's the time to create the tables");
             try {
