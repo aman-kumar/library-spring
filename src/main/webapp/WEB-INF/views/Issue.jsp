@@ -13,16 +13,16 @@
 
 		<table>
 			<tr>
-				<td><form:label path="firstName">First Name</form:label></td>
-				<td><form:input path="firstName" size="35"></form:input></td>
+				<td><form:label path="student.firstName">First Name</form:label></td>
+				<td><form:input path="student.firstName" size="35"></form:input></td>
 			</tr>
 			<tr>
-				<td><form:label path="lastName">Last Name</form:label></td>
-				<td><form:input path="lastName" size="35"></form:input></td>
+				<td><form:label path="student.lastName">Last Name</form:label></td>
+				<td><form:input path="student.lastName" size="35"></form:input></td>
 			</tr>
 			<tr>
-				<td><form:label path="bookRecord">BookRecordID</form:label></td>
-				<td><form:input path="bookRecord" size="35"></form:input></td>
+				<td><form:label path="record.bookRecord">BookRecordID</form:label></td>
+				<td><form:input path="record.bookRecord" size="35"></form:input></td>
 			</tr>
 
 			<tr>
