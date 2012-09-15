@@ -62,7 +62,7 @@ public class StudentDao {
 
     public List<Student> searchStudent(Student student) {
         return jdbcTemplate
-                .query("SELECT studentId,firstName,lastName,address,phoneNumber,email, from Student where firstName=? and lastName=?",
+                .query("SELECT studentId,firstName,lastName,address,phoneNumber,email from Student where firstName=? and lastName=?",
                         new Object[] { new String(student.getFirstName()),
                                 new String(student.getLastName()) },
                         new StudentMapper());

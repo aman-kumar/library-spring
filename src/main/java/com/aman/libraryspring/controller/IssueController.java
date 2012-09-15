@@ -27,20 +27,6 @@ public class IssueController {
 
     }
 
-    /*
-     * List<Record> recordList = new ArrayList<Record>();
-     * 
-     * @RequestMapping(value = "issueBook", method = RequestMethod.POST) public
-     * String issueBook(@ModelAttribute Record record,
-     * 
-     * @ModelAttribute Student student, Model model) {
-     * issueService.createRecord(record); issueService.searchStudent(student);
-     * issueService.updateRecord(); recordList =
-     * issueService.getUpdatedRecord(); model.addAttribute("recordList",
-     * recordList); return "IssueDetails";
-     * 
-     * }
-     */
     List<Record> recordList = new ArrayList<Record>();
 
     @RequestMapping(value = "issueBook", method = RequestMethod.POST)
@@ -48,6 +34,7 @@ public class IssueController {
             Model model) {
         issueService.createRecord(combo.getRecord());
         issueService.searchStudent(combo.getStudent());
+        issueService.updateRecord();
         recordList = issueService.getUpdatedRecord();
         model.addAttribute("recordList", recordList);
         return "IssueDetails";

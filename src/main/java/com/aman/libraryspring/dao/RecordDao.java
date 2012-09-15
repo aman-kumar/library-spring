@@ -73,10 +73,11 @@ public class RecordDao {
         return recordList;
     }
 
+    // and status=?,, "available"
     public List<Record> getBookStatus(String id) {
         return jdbcTemplate
-                .query("SELECT bookRecordId,bookId,status,studentId from BookRecord where bookId=? and status=?",
-                        new Object[] { id, "available" }, new RecordMapper());
+                .query("SELECT bookRecordId,bookId,status,studentId from BookRecord where bookId=? ",
+                        new Object[] { id }, new RecordMapper());
     }
 
     public List<Record> createSearchRecord(Record record) {
