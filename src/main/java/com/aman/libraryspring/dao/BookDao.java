@@ -1,16 +1,13 @@
 package com.aman.libraryspring.dao;
 
-import java.sql.Driver;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.hsqldb.jdbcDriver;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import com.aman.libraryspring.domain.Book;
 
@@ -19,9 +16,7 @@ public class BookDao {
     private JdbcTemplate jdbcTemplate;
 
     public BookDao() {
-        Driver driver = new jdbcDriver();
-        DataSource dataSource = new SimpleDriverDataSource(driver,
-                "jdbc:hsqldb:mem:aname; user=SA");
+    	DataSource dataSource = new ConnectionUtils().getDataSource();
         jdbcTemplate = new JdbcTemplate(dataSource);
 
     }
