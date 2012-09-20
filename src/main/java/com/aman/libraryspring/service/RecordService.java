@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.aman.libraryspring.dao.RecordDao;
+import com.aman.libraryspring.domain.Book;
 import com.aman.libraryspring.domain.Record;
 
 @Service
@@ -15,8 +16,8 @@ public class RecordService {
         recordDao = new RecordDao();
     }
 
-    public void create(Record record) {
-        recordDao.createRecord(record);
+    public void create(Book book) {
+        recordDao.createRecord(book);
     }
 
     public List<Record> getList() {

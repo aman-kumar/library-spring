@@ -19,11 +19,26 @@ public class RecordDao {
     private JdbcTemplate jdbcTemplate;
 
     public RecordDao() {
-    	DataSource dataSource = new ConnectionUtils().getDataSource();
+        DataSource dataSource = new ConnectionUtils().getDataSource();
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    public void createRecord(Record record) {
+    public void createRecord(Book book) {
+
+        String bookRecord = "bookRecord";
+        Record record = new Record();
+        Integer i;
+        for (i = 0; i <= book.getCopies(); i++) {
+
+            record.setBookId(book.getBookId());
+            record.setBookRecord(bookRecord.concat(i.toString()));
+            record.setStatus("available");
+            record.setStudentId("");
+            this.insertRecord(record);
+        }
+    }
+
+    public void insertRecord(Record record) {
         jdbcTemplate.update(
                 "INSERT into BookRecord values(?,?,?,?)",
                 new Object[] { new String(record.getBookRecord()),

@@ -17,6 +17,7 @@ import com.aman.libraryspring.service.IssueService;
 
 @Controller
 public class IssueController {
+
     @Autowired
     private IssueService issueService;
 
