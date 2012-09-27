@@ -12,6 +12,8 @@
 <body>
 	<%!int copies;
     String status;%>
+
+
 	<table align="left" width="2" border="3" bordercolor="black">
 		<tr>
 			<th width="15%">BookRecordId</th>
@@ -28,10 +30,22 @@
 		%>
 
 		<tr>
-			<td width="15%"><%=record.getBookRecord()%></td>
-			<td width="15%"><%=record.getBookId()%></td>
-			<td width="15%"><%=record.getStatus()%></td>
-			<td width="15%"><%=record.getStudentId()%></td>
+		<td width="15%" >
+			<input type="radio" name="bookRecordId"
+				value=<%=record.getBookRecord()%>><%=record.getBookRecord()%><br>
+			<br>
+			</td>
+			<td width="15%" >
+			<input type="radio" name="bookId" value=<%=record.getBookId()%>><%=record.getBookId()%><br>
+			</td>
+			<td width="15%" >
+			<input type="radio" name="status" value=<%=record.getStatus()%>><%=record.getStatus()%><br>
+			</td>
+			<td width="15%">
+			<input type="radio" name="studentId"
+				value=<%=record.getStudentId()%>><%=record.getStudentId()%><br>
+			</td>	
+			
 		</tr>
 
 
@@ -44,7 +58,7 @@
 
 	</table>
 	<%
-	    if(status.equals("available")) {
+	    if (status.equals("available")) {
 	%>
 	<br>
 	<br>
