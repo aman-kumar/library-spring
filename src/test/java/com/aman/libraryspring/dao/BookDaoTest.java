@@ -1,7 +1,8 @@
 package com.aman.libraryspring.dao;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+
+import java.util.Iterator;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -13,18 +14,17 @@ import com.aman.libraryspring.domain.Book;
 public class BookDaoTest {
     BookDao bookDao = new BookDao();
     Book book = new Book();
-Book book2;
+    Book book2 = new Book();
+
     @BeforeClass
     public static void setUp() throws Exception {
         DbConfiguration.populateSqls();
-        
+
     }
-/*
-    @Test
-    public void testCreateBook() {
-        fail("Not yet implemented");
-    }
-*/
+
+    /*
+     * @Test public void testCreateBook() { fail("Not yet implemented"); }
+     */
     @Test
     public void testListBook() {
         book.setName("Effective Java");
@@ -43,12 +43,33 @@ Book book2;
         assertEquals(10, bookDao.listBook().get(0).getCopies());
 
     }
-/*
+
     @Test
     public void testSearchBook() {
-        fail("Not yet implemented");
+        book2.setName("HeadFirst Java");
+        book2.setAuthor("Cathy Siera");
+        book2.setBookId("book2");
+        book2.setDescription("Must read for every java developer");
+        book2.setPublisher("Oreilly");
+        book2.setCopies(10);
+        bookDao.createBook(book2);
+        Book book3 = new Book();
+        book3.setName("HeadFirst Java");
+        book3.setAuthor("Cathy Siera");
+        Iterator<Book> itr = bookDao.searchBook(book3).iterator();
+        while (itr.hasNext()) {
+            Book book4 = itr.next();
+            assertEquals("Cathy Siera", book4.getAuthor());
+            assertEquals("HeadFirst Java", book4.getName());
+            assertEquals("book2", book4.getBookId());
+            assertEquals("Must read for every java developer",
+                    book4.getDescription());
+            assertEquals("Oreilly", book4.getPublisher());
+            assertEquals(10, book4.getCopies());
+        }
+
     }
-*/
+
     @AfterClass
     public static void tearDown() throws Exception {
         DbConfiguration.tearDownSchema();
