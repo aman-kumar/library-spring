@@ -10,12 +10,13 @@ primary key (bookId));
 
 create table Student
 (studentId varchar(25) not null,
-fistName varchar(25),
+firstName varchar(25),
 lastName varchar(25),
 address varchar(50),
 phoneNumber integer,
 email varchar(50),
 primary key(studentId));
+
 create table BookRecord 
 (
 bookRecordId varchar(25) not null,

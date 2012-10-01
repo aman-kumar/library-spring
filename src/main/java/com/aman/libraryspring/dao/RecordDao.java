@@ -28,7 +28,7 @@ public class RecordDao {
         String bookRecord = "bookRecord";
         Record record = new Record();
         Integer i;
-        for (i = 0; i <= book.getCopies(); i++) {
+        for (i = 0; i < book.getCopies(); i++) {
 
             record.setBookId(book.getBookId());
             record.setBookRecord(bookRecord.concat(i.toString()));
