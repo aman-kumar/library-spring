@@ -8,15 +8,17 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.aman.libraryspring.domain.Book;
 
+@Repository
 public class BookDao {
 
     private JdbcTemplate jdbcTemplate;
 
     public BookDao() {
-    	DataSource dataSource = new ConnectionUtils().getDataSource();
+        DataSource dataSource = new ConnectionUtils().getDataSource();
         jdbcTemplate = new JdbcTemplate(dataSource);
 
     }

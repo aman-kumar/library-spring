@@ -10,11 +10,13 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.aman.libraryspring.domain.Book;
 import com.aman.libraryspring.domain.Record;
 import com.aman.libraryspring.domain.Student;
 
+@Repository
 public class RecordDao {
     private JdbcTemplate jdbcTemplate;
 

@@ -8,9 +8,11 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.aman.libraryspring.domain.Student;
 
+@Repository
 public class StudentDao {
     // --> create Student, listStudent,searchStudent
     private JdbcTemplate jdbcTemplate;

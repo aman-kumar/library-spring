@@ -2,6 +2,8 @@ package com.aman.libraryspring.service;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.aman.libraryspring.dao.RecordDao;
@@ -11,13 +13,10 @@ import com.aman.libraryspring.domain.Student;
 
 @Service
 public class IssueService {
+    @Resource
     StudentDao studentDao;
+    @Resource
     RecordDao recordDao;
-
-    public IssueService() {
-        studentDao = new StudentDao();
-        recordDao = new RecordDao();
-    }
 
     List<Student> searchStudent;
 
