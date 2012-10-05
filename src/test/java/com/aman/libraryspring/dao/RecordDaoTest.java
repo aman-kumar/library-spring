@@ -3,14 +3,12 @@ package com.aman.libraryspring.dao;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Iterator;
-import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.aman.libraryspring.DbConfiguration;
-
 import com.aman.libraryspring.domain.Book;
 import com.aman.libraryspring.domain.Record;
 import com.aman.libraryspring.domain.Student;
@@ -63,11 +61,13 @@ public class RecordDaoTest {
         String value = "bookRecord";
         assertEquals(5, recordDao.listRecord().size());
         Iterator<Record> itr = recordDao.listRecord().iterator();
-        for (Integer i = 0; i < recordDao.listRecord().size(); i++) {
-            assertEquals("book1", recordDao.listRecord().get(i).getBookId());
+
+        for (Integer i = 1; i <= recordDao.listRecord().size(); i++) {
+            assertEquals("book1", recordDao.listRecord().get(i - 1).getBookId());
             assertEquals(value.concat(i.toString()), recordDao.listRecord()
-                    .get(i).getBookRecord());
-            assertEquals("available", recordDao.listRecord().get(i).getStatus());
+                    .get(i - 1).getBookRecord());
+            assertEquals("available", recordDao.listRecord().get(i - 1)
+                    .getStatus());
         }
     }
 

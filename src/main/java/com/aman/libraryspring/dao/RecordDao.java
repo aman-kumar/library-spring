@@ -30,13 +30,29 @@ public class RecordDao {
         String bookRecord = "bookRecord";
         Record record = new Record();
         Integer i;
-        for (i = 0; i < book.getCopies(); i++) {
 
-            record.setBookId(book.getBookId());
-            record.setBookRecord(bookRecord.concat(i.toString()));
-            record.setStatus("available");
-            record.setStudentId("");
-            this.insertRecord(record);
+        RecordDao recordDao = new RecordDao();
+        if (recordDao.listRecord().size() == 0) {
+            for (i = 1; i <= book.getCopies(); i++) {
+
+                record.setBookId(book.getBookId());
+                record.setBookRecord(bookRecord.concat(i.toString()));
+                record.setStatus("available");
+                record.setStudentId("");
+                this.insertRecord(record);
+
+            }
+
+        } else {
+            int size = recordDao.listRecord().size();
+            int copies = book.getCopies() + size;
+            for (i = size + 1; i <= copies; i++) {
+                record.setBookId(book.getBookId());
+                record.setBookRecord(bookRecord.concat(i.toString()));
+                record.setStatus("available");
+                record.setStudentId("");
+                this.insertRecord(record);
+            }
         }
     }
 

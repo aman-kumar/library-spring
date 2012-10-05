@@ -23,6 +23,7 @@ bookRecordId varchar(25) not null,
 bookId varchar(20) not null,
 status varchar(20),
 studentId varchar(20),
+primary key(bookRecordId),
 foreign key(bookId) references Book(bookId) 
 );
 

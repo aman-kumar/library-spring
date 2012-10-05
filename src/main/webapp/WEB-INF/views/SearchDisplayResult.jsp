@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page
 	import="java.util.*,com.aman.libraryspring.dao.*,com.aman.libraryspring.domain.*,com.aman.libraryspring.controller.*"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,7 +12,8 @@
 </head>
 <body>
 	<%!int copies;
-    String status;%>
+    String status;
+%>
 
 
 	<table align="left" width="2" border="3" bordercolor="black">
@@ -26,38 +28,29 @@
 		            .getAttribute("recordList"); // pwm.println("The book has been located in the database");
 		    Iterator<Record> itr = recordList.iterator();
 		    while (itr.hasNext()) {
-		        Record record = (Record) itr.next();
+		    Record record = (Record) itr.next();
 		%>
 
 		<tr>
-		<td width="15%" >
-			<input type="radio" name="bookRecordId"
-				value=<%=record.getBookRecord()%>><%=record.getBookRecord()%><br>
-			<br>
-			</td>
-			<td width="15%" >
-			<input type="radio" name="bookId" value=<%=record.getBookId()%>><%=record.getBookId()%><br>
-			</td>
-			<td width="15%" >
-			<input type="radio" name="status" value=<%=record.getStatus()%>><%=record.getStatus()%><br>
-			</td>
-			<td width="15%">
-			<input type="radio" name="studentId"
-				value=<%=record.getStudentId()%>><%=record.getStudentId()%><br>
-			</td>	
-			
+			<td width="15%"><%=record.getBookRecord()%></td>	
+			<td width="15%"><%=record.getBookId()%></td>
+			<td width="15%"><%=record.getStatus()%></td>
+			<td width="15%"><%=record.getStudentId()%></td>
+
 		</tr>
-
-
-
 		<%
 		    //copies=book.getCopies();
 		        status = record.getStatus();
+		     
 		    }
 		%>
 
+
+
 	</table>
+
 	<%
+	
 	    if (status.equals("available")) {
 	%>
 	<br>
@@ -73,6 +66,7 @@
 	<br>
 	<%
 	    }
+	
 	%>
 	<br>
 	<br>
@@ -80,3 +74,5 @@
 
 </body>
 </html>
+
+	

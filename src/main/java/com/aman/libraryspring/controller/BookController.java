@@ -56,7 +56,7 @@ public class BookController {
             System.out
                     .println("table Book has been successfully created it seems now ");
             // FOREIGN KEY REFERENCES Book(bookId)
-            String bookRecordTable = "CREATE TABLE BookRecord (bookRecordId VARCHAR(25) , bookId VARCHAR(20) ,status VARCHAR(20),studentId VARCHAR(25), FOREIGN KEY(bookId) REFERENCES Book(bookId))";
+            String bookRecordTable = "CREATE TABLE BookRecord (bookRecordId VARCHAR(25) PRIMARY KEY , bookId VARCHAR(20) ,status VARCHAR(20),studentId VARCHAR(25), FOREIGN KEY(bookId) REFERENCES Book(bookId))";
             con.createStatement().executeUpdate(bookRecordTable);
             System.out
                     .println("table BookRecord has been successfully created it seems now ");
