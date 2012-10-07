@@ -11,9 +11,9 @@
 <title>Search Display Result</title>
 </head>
 <body>
+
 	<%!int copies;
-    String status;
-%>
+    String status;%>
 
 
 	<table align="left" width="2" border="3" bordercolor="black">
@@ -28,11 +28,11 @@
 		            .getAttribute("recordList"); // pwm.println("The book has been located in the database");
 		    Iterator<Record> itr = recordList.iterator();
 		    while (itr.hasNext()) {
-		    Record record = (Record) itr.next();
+		        Record record = (Record) itr.next();
 		%>
 
 		<tr>
-			<td width="15%"><%=record.getBookRecord()%></td>	
+			<td width="15%"> <input type="radio" name=<%=record.getBookRecord() %>  value=><%=record.getBookRecord()%>  </td>
 			<td width="15%"><%=record.getBookId()%></td>
 			<td width="15%"><%=record.getStatus()%></td>
 			<td width="15%"><%=record.getStudentId()%></td>
@@ -41,7 +41,7 @@
 		<%
 		    //copies=book.getCopies();
 		        status = record.getStatus();
-		     
+
 		    }
 		%>
 
@@ -50,7 +50,6 @@
 	</table>
 
 	<%
-	
 	    if (status.equals("available")) {
 	%>
 	<br>
@@ -66,13 +65,17 @@
 	<br>
 	<%
 	    }
-	
 	%>
+	<form:form method ="get" action="issueBook" commandName="command" >
+	<input type="text" name="aman" value="aman" >
+	
+		<form:label path="student.firstName">First Name</form:label>
+				<form:input path="student.firstName" size="35"></form:input>
+	<input type="submit" value="submit" >
+	</form:form>
 	<br>
 	<br>
 	<br>
-
-</body>
+	</body>
 </html>
 
-	
