@@ -9,41 +9,47 @@
 <title>StudentEntryPage</title>
 </head>
 <body>
-	<h2>Student Details Entry Page:</h2>
-	<form:form method="GET" action="addStudent">
+	<table align="center" width="2" border="3" bordercolor="black">
+		<tr>
+		    <th width="35%"><a href="BookEntryPage">BookEntryPage</a></th>
+			<th width="35%"><a href="SearchBookForm">SearchBook</a><br></th>
 
-		<table>
-			<tr>
-				<td><form:label path="studentId">ID</form:label></td>
-				<td><form:input path="studentId" size="35"></form:input></td>
-			</tr>
-			<tr>
-				<td><form:label path="firstName">First Name</form:label></td>
-				<td><form:input path="firstName" size="35"></form:input></td>
-			</tr>
-			<tr>
-				<td><form:label path="lastName">Last Name</form:label></td>
-				<td><form:input path="lastName" size="35"></form:input></td>
-			</tr>
-			<tr>
-				<td><form:label path="emailId">Email Id</form:label></td>
-				<td><form:input path="emailId" size="60"></form:input></td>
-			</tr>
-			<tr>
-				<td><form:label path="address">Address</form:label></td>
-				<td><form:input path="address" size="60"></form:input></td>
-			</tr>
-			<tr>
-				<td><form:label path="phoneNumber">PhoneNumber</form:label></td>
-				<td><form:input path="phoneNumber" size="11"></form:input></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="Submit" /></td>
-			</tr>
+		</tr>
 
-		</table>
+		<h2>Student Details Entry Page:</h2>
+		<form:form method="GET" action="addStudent">
 
-	</form:form>
+			<table>
+				<tr>
+					<td><form:label path="studentId">ID</form:label></td>
+					<td><form:input path="studentId" size="35"></form:input></td>
+				</tr>
+				<tr>
+					<td><form:label path="firstName">First Name</form:label></td>
+					<td><form:input path="firstName" size="35"></form:input></td>
+				</tr>
+				<tr>
+					<td><form:label path="lastName">Last Name</form:label></td>
+					<td><form:input path="lastName" size="35"></form:input></td>
+				</tr>
+				<tr>
+					<td><form:label path="emailId">Email Id</form:label></td>
+					<td><form:input path="emailId" size="60"></form:input></td>
+				</tr>
+				<tr>
+					<td><form:label path="address">Address</form:label></td>
+					<td><form:input path="address" size="60"></form:input></td>
+				</tr>
+				<tr>
+					<td><form:label path="phoneNumber">PhoneNumber</form:label></td>
+					<td><form:input path="phoneNumber" size="11"></form:input></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit" /></td>
+				</tr>
 
+			</table>
+
+		</form:form>
 </body>
 </html>

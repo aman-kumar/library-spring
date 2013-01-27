@@ -8,39 +8,46 @@
 <title>BooksEntryPage</title>
 </head>
 <body>
-	<h2>Books Details Entry Page:</h2>
-	<form:form method="POST" action="addBook">
-		<table>
-			<tr>
-				<td><form:label path="bookId">Id</form:label></td>
-				<td><form:input path="bookId" size="35"></form:input></td>
-			</tr>
-			<tr>
-				<td><form:label path="name">Name</form:label></td>
-				<td><form:input path="name" size="35"></form:input></td>
-			</tr>
-			<tr>
-				<td><form:label path="author">Author</form:label></td>
-				<td><form:input path="author" size="35"></form:input></td>
-			</tr>
-			<tr>
-				<td><form:label path="description">Description</form:label></td>
-				<td><form:input path="description" size="35"></form:input></td>
-			</tr>
-			<tr>
-				<td><form:label path="publisher">Publisher</form:label></td>
-				<td><form:input path="publisher" size="35"></form:input></td>
-			</tr>
-			<tr>
-				<td><form:label path="copies">Copies</form:label></td>
-				<td><form:input path="copies" size="35"></form:input></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="Submit" /></td>
-			</tr>
+	<table align="center" width="2" border="3" bordercolor="black">
+		<tr>
+			<th width="35%"><a href="StudentDetailsEnterForm">StudentEntryPage</a></th>
+			<th width="35%"><a href="SearchBookForm">SearchBook</a><br></th>
+		</tr>
+		<h2>Books Details Entry Page:</h2>
 
-		</table>
 
-	</form:form>
+		<form:form method="POST" action="addBook">
+			<table>
+				<tr>
+					<td><form:label path="bookId">Id</form:label></td>
+					<td><form:input path="bookId" size="35"></form:input></td>
+				</tr>
+				<tr>
+					<td><form:label path="name">Name</form:label></td>
+					<td><form:input path="name" size="35"></form:input></td>
+				</tr>
+				<tr>
+					<td><form:label path="author">Author</form:label></td>
+					<td><form:input path="author" size="35"></form:input></td>
+				</tr>
+				<tr>
+					<td><form:label path="description">Description</form:label></td>
+					<td><form:input path="description" size="35"></form:input></td>
+				</tr>
+				<tr>
+					<td><form:label path="publisher">Publisher</form:label></td>
+					<td><form:input path="publisher" size="35"></form:input></td>
+				</tr>
+				<tr>
+					<td><form:label path="copies">Copies</form:label></td>
+					<td><form:input path="copies" size="35"></form:input></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit" /></td>
+				</tr>
+
+			</table>
+
+		</form:form>
 </body>
 </html>
