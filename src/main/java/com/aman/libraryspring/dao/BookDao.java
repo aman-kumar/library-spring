@@ -11,9 +11,10 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.aman.libraryspring.domain.Book;
+import com.aman.libraryspring.interfaces.BookDAO;
 
 @Repository
-public class BookDao {
+public class BookDao implements BookDAO {
 
     private JdbcTemplate jdbcTemplate;
 

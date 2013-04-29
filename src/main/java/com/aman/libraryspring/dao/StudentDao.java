@@ -11,9 +11,10 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.aman.libraryspring.domain.Student;
+import com.aman.libraryspring.interfaces.StudentDAO;
 
 @Repository
-public class StudentDao {
+public class StudentDao implements StudentDAO {
     // --> create Student, listStudent,searchStudent
     private JdbcTemplate jdbcTemplate;
 

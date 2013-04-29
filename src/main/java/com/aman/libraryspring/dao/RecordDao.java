@@ -15,9 +15,10 @@ import org.springframework.stereotype.Repository;
 import com.aman.libraryspring.domain.Book;
 import com.aman.libraryspring.domain.Record;
 import com.aman.libraryspring.domain.Student;
+import com.aman.libraryspring.interfaces.RecordDAO;
 
 @Repository
-public class RecordDao {
+public class RecordDao implements RecordDAO {
     private JdbcTemplate jdbcTemplate;
 
     public RecordDao() {

@@ -1,5 +1,6 @@
 package com.aman.libraryspring.domain;
 
+
 public class AllThree {
     private Book book;
     private Student student;
