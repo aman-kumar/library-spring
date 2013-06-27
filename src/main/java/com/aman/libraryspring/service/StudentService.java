@@ -11,14 +11,18 @@ import com.aman.libraryspring.domain.Student;
 
 @Service
 public class StudentService {
-    @Resource
-    StudentDao studentDao;
+	@Resource
+	StudentDao studentDao;
 
-    public void create(Student student) {
-        studentDao.createStudent(student);
-    }
+	public void setStudentDao(StudentDao studentDao) {
+		this.studentDao = studentDao;
+	}
 
-    public List<Student> getList() {
-        return studentDao.getList();
-    }
+	public void create(Student student) {
+		studentDao.createStudent(student);
+	}
+
+	public List<Student> getList() {
+		return studentDao.getList();
+	}
 }

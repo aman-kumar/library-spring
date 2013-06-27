@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.aman.libraryspring.dao.BookDao;
 import com.aman.libraryspring.dao.RecordDao;
 import com.aman.libraryspring.dao.StudentDao;
 import com.aman.libraryspring.domain.Record;
@@ -18,6 +19,15 @@ public class IssueService {
     @Resource
     RecordDao recordDao;
 
+	public void setStudentDao(StudentDao studentDao) {
+		this.studentDao = studentDao;
+	}
+
+	public void setRecordDao(RecordDao recordDao) {
+		this.recordDao = recordDao;
+	}
+
+	
     List<Student> searchStudent;
 
     public void searchStudent(Student student) {

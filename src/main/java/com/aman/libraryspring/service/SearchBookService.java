@@ -13,12 +13,20 @@ import com.aman.libraryspring.domain.Record;
 
 @Service
 public class SearchBookService {
-    @Resource
-    BookDao bookDao;
-    @Resource
-    RecordDao recordDao;
+	@Resource
+	BookDao bookDao;
+	@Resource
+	RecordDao recordDao;
 
-    public List<Record> search(Book book) {
-        return recordDao.getRecordList(bookDao.searchBook(book));
-    }
+	public void setBookDao(BookDao bookDao) {
+		this.bookDao = bookDao;
+	}
+
+	public void setRecordDao(RecordDao recordDao) {
+		this.recordDao = recordDao;
+	}
+
+	public List<Record> search(Book book) {
+		return recordDao.getRecordList(bookDao.searchBook(book));
+	}
 }

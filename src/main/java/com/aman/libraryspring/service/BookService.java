@@ -11,16 +11,24 @@ import com.aman.libraryspring.domain.Book;
 
 @Service
 public class BookService {
-    @Resource
-    BookDao bookDao;
+	@Resource
+	BookDao bookDao;
 
-    public void create(Book book) {
-        bookDao.createBook(book);
+	public void setDataAccess(BookDao bookDao) {
+		this.bookDao = bookDao;
+	}
 
-    }
+	// BookDAO bookDao=mock(BookDao.class);
+	// when(bookDao.listBook()).thenReturn("list");
+	// Service service=new Service();
+	// verify(service.getList());
+	public void create(Book book) {
+		bookDao.createBook(book);
 
-    public List<Book> getList() {
-        return bookDao.listBook();
-    }
+	}
+
+	public List<Book> getList() {
+		return bookDao.listBook();
+	}
 
 }

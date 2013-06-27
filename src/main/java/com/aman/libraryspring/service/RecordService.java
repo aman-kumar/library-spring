@@ -12,14 +12,18 @@ import com.aman.libraryspring.domain.Record;
 
 @Service
 public class RecordService {
-    @Resource
-    RecordDao recordDao;
+	@Resource
+	RecordDao recordDao;
 
-    public void create(Book book) {
-        recordDao.createRecord(book);
-    }
+	public void setRecordDao(RecordDao recordDao) {
+		this.recordDao = recordDao;
+	}
 
-    public List<Record> getList() {
-        return recordDao.listRecord();
-    }
+	public void create(Book book) {
+		recordDao.createRecord(book);
+	}
+
+	public List<Record> getList() {
+		return recordDao.listRecord();
+	}
 }
