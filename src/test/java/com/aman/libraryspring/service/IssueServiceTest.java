@@ -1,11 +1,11 @@
 package com.aman.libraryspring.service;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.Resource;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,9 +16,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.aman.libraryspring.dao.RecordDao;
 import com.aman.libraryspring.dao.StudentDao;
-import com.aman.libraryspring.domain.Book;
 import com.aman.libraryspring.domain.Record;
-import com.aman.libraryspring.domain.Student;
 
 @RunWith(MockitoJUnitRunner.class)
 public class IssueServiceTest {
@@ -28,13 +26,12 @@ public class IssueServiceTest {
 
 	@Mock
 	private RecordDao recordDao;
-	@Mock
-	private List<Record> recordList;
 
-	@Mock
-	private Record record1;
-	@Mock
-	private Record record2;
+	private List<Record> recordList = new ArrayList<Record>();
+
+	private Record record1 = new Record();
+
+	private Record record2 = new Record();
 
 	@Before
 	public void setUp() throws Exception {
