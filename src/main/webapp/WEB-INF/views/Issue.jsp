@@ -8,6 +8,19 @@
 <title>Issue Page</title>
 </head>
 <body>
+<table align="left" border="0">
+		<tr>
+			<table align="left" width="2" border="3" bordercolor="black">
+				<tr>
+					<th width="35%"><a href="StudentDetailsEnterForm">StudentEntryPage</a></th>
+					<th width="35%"><a href="SearchBookForm">SearchBook</a><br></th>
+					<th width="35%"><a href="BookEntryPage">BookEntry</a><br></th>
+				</tr>
+				</tr>
+				</table>
+				</tr>
+				<br>
+				<tr>
 	<h2>Issue Page:</h2>
 	<form:form method="POST" action="issueBook">
 
@@ -32,6 +45,7 @@
 		</table>
 
 	</form:form>
-
+</tr>
+</table>
 </body>
 </html>

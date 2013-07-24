@@ -34,7 +34,6 @@ public class SearchBookController {
     public String searchBook(@ModelAttribute AllThree allThree, Model model) {
         System.out.println(allThree.getBook().getName());
         recordList = searchBookService.search(allThree.getBook());
-        System.out.println(recordList.get(0).getStatus());
         model.addAttribute("recordList", recordList);
         return "SearchDisplayResult";
 

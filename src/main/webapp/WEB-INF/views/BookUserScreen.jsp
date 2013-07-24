@@ -9,8 +9,26 @@
 <title>Books Present in the Library</title>
 </head>
 <body>
+<table border="0">
+<tr>
+<td>
+		<table align="left" width="2" border="3" bordercolor="black">
+		<tr>
+			<th width="35%"><a href="StudentDetailsEnterForm">StudentEntryPage</a></th>
 
-	<table border="2" bordercolor="black">
+
+			<th width="35%"><a href="SearchBookForm">SearchBook</a><br></th>
+
+
+			<th width="35%"><a href="BookEntryPage">BookEntry</a><br></th>
+		</tr>
+		
+	</table>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<table align="left" width="2" border="2" bordercolor="black">
 		<caption>
 			<h2>Books present in the library</h2>
 		</caption>
@@ -23,11 +41,11 @@
 			<th width="15%">Copies</th>
 		</tr>
 		<%
-		    List<Book> bookList = new ArrayList<Book>();
-		    bookList = (ArrayList<Book>) request.getAttribute("books");
-		    Iterator<Book> itr = bookList.iterator();
-		    while (itr.hasNext()) {
-		        Book book = (Book)itr.next();
+			List<Book> bookList = new ArrayList<Book>();
+			bookList = (ArrayList<Book>) request.getAttribute("books");
+			Iterator<Book> itr = bookList.iterator();
+			while (itr.hasNext()) {
+				Book book = (Book) itr.next();
 		%>
 		<tr>
 			<td width="15%"><%=book.getBookId()%></td>
@@ -39,9 +57,12 @@
 
 		</tr>
 		<%
-		    }
+			}
 		%>
 
+	</table>
+	</td>
+	</tr>
 	</table>
 </body>
 </html>
