@@ -26,23 +26,14 @@
 
 				<table>
 					<tr>
-						<td><form:label path="book.name">Name</form:label></td>
-						<td><form:input path="book.name" size="35"></form:input></td>
+						<td><form:label path="name">Name</form:label></td>
+						<td><form:input path="name" size="35"></form:input></td>
 					</tr>
 					<tr>
-						<td><form:label path="book.author">Author</form:label></td>
-						<td><form:input path="book.author" size="35"></form:input></td>
+						<td><form:label path="author">Author</form:label></td>
+						<td><form:input path="author" size="35"></form:input></td>
 					</tr>
-					<tr>
-					<tr>
-						<td><form:label path="student.firstName">First Name</form:label></td>
-						<td><form:input path="student.firstName" size="35"></form:input></td>
-					</tr>
-					<tr>
-						<td><form:label path="student.lastName">Last Name</form:label></td>
-						<td><form:input path="student.lastName" size="35"></form:input></td>
-					</tr>
-
+					
 					<tr>
 						<td><input type="submit" value="Submit" /></td>
 					</tr>

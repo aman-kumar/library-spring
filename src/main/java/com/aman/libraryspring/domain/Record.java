@@ -1,5 +1,7 @@
 package com.aman.libraryspring.domain;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 public class Record {
 
     private String bookRecord;
@@ -38,5 +40,7 @@ public class Record {
     public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
-
+    public String toString(){
+   	 return ToStringBuilder.reflectionToString(this);
+   }
 }

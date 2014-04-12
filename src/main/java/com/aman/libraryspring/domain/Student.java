@@ -1,5 +1,7 @@
 package com.aman.libraryspring.domain;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 public class Student {
 
     private String studentId;
@@ -55,6 +57,10 @@ public class Student {
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    
+    public String toString(){
+    	 return ToStringBuilder.reflectionToString(this);
     }
 
 }

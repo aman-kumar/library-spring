@@ -14,7 +14,7 @@
 				<tr>
 					<th width="35%"><a href="StudentDetailsEnterForm">StudentEntryPage</a></th>
 					<th width="35%"><a href="SearchBookForm">SearchBook</a><br></th>
-					<th width="35%"><a href="BookEntryPage">SearchBook</a><br></th>
+					<th width="35%"><a href="BookEntryPage">BookEntry</a><br></th>
 				</tr>
 				</tr>
 				</table>

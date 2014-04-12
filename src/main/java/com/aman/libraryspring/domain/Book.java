@@ -1,5 +1,7 @@
 package com.aman.libraryspring.domain;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 public class Book {
     private String name;
     private String author;
@@ -55,5 +57,7 @@ public class Book {
     public void setCopies(int copies) {
         this.copies = copies;
     }
-
+    public String toString(){
+   	 return ToStringBuilder.reflectionToString(this);
+   }
 }

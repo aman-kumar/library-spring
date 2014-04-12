@@ -48,8 +48,9 @@
 						<td><form:input path="address" size="60"></form:input></td>
 					</tr>
 					<tr>
-						<td><form:label path="phoneNumber">PhoneNumber</form:label></td>
-						<td><form:input path="phoneNumber" size="11"></form:input></td>
+						<td><form:label path="phoneNumber" >PhoneNumber</form:label></td>
+						
+						<td><form:input path="phoneNumber" size="11" ></form:input></td>
 					</tr>
 					<tr>
 						<td><input type="submit" value="Submit" /></td>
