@@ -25,7 +25,7 @@ public class RecordDao implements RecordDAO {
         DataSource dataSource = new ConnectionUtils().getDataSource();
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
-
+//In this function i m getting the exception related to foreign key
     public void createRecord(Book book) {
 
         String bookRecord = "bookRecord";
