@@ -33,14 +33,14 @@ public class RecordTest {
 
     @Test
     public void testGetBookId() {
-        record.setBookId("book1");
-        assertEquals("book1", record.getBookId());
+        record.setBookId(1);
+        assertEquals(1, record.getBookId());
     }
 
     @Test
     public void testSetBookId() {
-        record.setBookId("book2");
-        assertEquals("book2", record.getBookId());
+        record.setBookId(2);
+        assertEquals(2, record.getBookId());
     }
 
     @Test
@@ -57,14 +57,14 @@ public class RecordTest {
 
     @Test
     public void testGetStudentId() {
-        record.setStudentId("student1");
-        assertEquals("student1", record.getStudentId());
+        record.setStudentId(1);
+        assertEquals(1, record.getStudentId());
     }
 
     @Test
     public void testSetStudentId() {
-        record.setStudentId("student2");
-        assertEquals("student2", record.getStudentId());
+        record.setStudentId(2);
+        assertEquals(2, record.getStudentId());
     }
 
 }

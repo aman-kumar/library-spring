@@ -15,7 +15,7 @@ public interface RecordDAO {
 
     public List<Record> getRecordList(List<Book> bookList);
 
-    public List<Record> getBookStatus(String id);
+    public List<Record> getBookStatus(int id);
 
     public List<Record> createSearchRecord(Record record);
 

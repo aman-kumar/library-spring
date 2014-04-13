@@ -4,18 +4,18 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class Student {
 
-    private String studentId;
+    private int studentId;
     private String firstName;
     private String lastName;
     private String emailId;
     private String address;
     private int phoneNumber;
 
-    public String getStudentId() {
+    public int getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
 

@@ -5,9 +5,9 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class Record {
 
     private String bookRecord;
-    private String bookId;
+    private int bookId;
     private String status;
-    private String studentId;
+    private int studentId;
 
     public String getBookRecord() {
         return bookRecord;
@@ -17,11 +17,11 @@ public class Record {
         this.bookRecord = bookRecord;
     }
 
-    public String getBookId() {
+    public int getBookId() {
         return bookId;
     }
 
-    public void setBookId(String bookId) {
+    public void setBookId(int bookId) {
         this.bookId = bookId;
     }
 
@@ -33,11 +33,11 @@ public class Record {
         this.status = status;
     }
 
-    public String getStudentId() {
+    public int getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
     public String toString(){

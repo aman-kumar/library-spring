@@ -20,11 +20,11 @@ public class StudentRecordComboTest {
         student.setLastName("Kumar");
         student.setAddress("Ashiana Greens");
         student.setPhoneNumber(9899);
-        student.setStudentId("student1");
-        record.setBookId("book1");
+        student.setStudentId(1);
+        record.setBookId(1);
         record.setBookRecord("bookRecord1");
         record.setStatus("issued");
-        record.setStudentId("student1");
+        record.setStudentId(1);
         studentRecordCombo = new StudentRecordCombo();
     }
 
@@ -41,7 +41,7 @@ public class StudentRecordComboTest {
                 .getEmailId());
         assertEquals("Ashiana Greens", studentRecordCombo.getStudent()
                 .getAddress());
-        assertEquals("student1", studentRecordCombo.getStudent().getStudentId());
+        assertEquals(1, studentRecordCombo.getStudent().getStudentId());
         assertEquals(9899, studentRecordCombo.getStudent().getPhoneNumber());
     }
 
@@ -54,7 +54,7 @@ public class StudentRecordComboTest {
                 .getEmailId());
         assertEquals("Ashiana Greens", studentRecordCombo.getStudent()
                 .getAddress());
-        assertEquals("student1", studentRecordCombo.getStudent().getStudentId());
+        assertEquals(1, studentRecordCombo.getStudent().getStudentId());
         assertEquals(9899, studentRecordCombo.getStudent().getPhoneNumber());
     }
 
@@ -63,9 +63,9 @@ public class StudentRecordComboTest {
         studentRecordCombo.setRecord(record);
         assertEquals("bookRecord1", studentRecordCombo.getRecord()
                 .getBookRecord());
-        assertEquals("book1", studentRecordCombo.getRecord().getBookId());
+        assertEquals(1, studentRecordCombo.getRecord().getBookId());
         assertEquals("issued", studentRecordCombo.getRecord().getStatus());
-        assertEquals("student1", studentRecordCombo.getRecord().getStudentId());
+        assertEquals(1, studentRecordCombo.getRecord().getStudentId());
 
     }
 
@@ -74,9 +74,9 @@ public class StudentRecordComboTest {
         studentRecordCombo.setRecord(record);
         assertEquals("bookRecord1", studentRecordCombo.getRecord()
                 .getBookRecord());
-        assertEquals("book1", studentRecordCombo.getRecord().getBookId());
+        assertEquals(1, studentRecordCombo.getRecord().getBookId());
         assertEquals("issued", studentRecordCombo.getRecord().getStatus());
-        assertEquals("student1", studentRecordCombo.getRecord().getStudentId());
+        assertEquals(1, studentRecordCombo.getRecord().getStudentId());
 
     }
 

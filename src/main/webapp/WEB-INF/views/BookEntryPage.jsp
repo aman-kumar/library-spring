@@ -22,10 +22,12 @@
 				<h2>Books Details Entry Page:</h2>
 				<form:form method="POST" action="addBook">
 					<table>
+						<!--  
 						<tr>
 							<td><form:label path="bookId">Id</form:label></td>
 							<td><form:input path="bookId" size="35"></form:input></td>
 						</tr>
+						-->
 						<tr>
 							<td><form:label path="name">Name</form:label></td>
 							<td><form:input path="name" size="35"></form:input></td>

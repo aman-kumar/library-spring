@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+
 import com.aman.libraryspring.domain.Student;
 import com.aman.libraryspring.interfaces.StudentDAO;
 
@@ -25,9 +26,8 @@ public class StudentDao implements StudentDAO {
 
     public void createStudent(Student student) {
         jdbcTemplate.update(
-                "INSERT into Student values(?,?,?,?,?,?)",
-                new Object[] { new String(student.getStudentId()),
-                        new String(student.getFirstName()),
+                "INSERT into Student (firstName, lastName, address, phoneNumber, email) values(?,?,?,?,?)",
+                new Object[] {new String(student.getFirstName()),
                         new String(student.getLastName()),
                         new String(student.getAddress()),
                         new Integer(student.getPhoneNumber()),
@@ -46,7 +46,7 @@ public class StudentDao implements StudentDAO {
                 throws SQLException {
             // TODO Auto-generated method stub
             Student student = new Student();
-            student.setStudentId(resultSet.getString("studentId"));
+            student.setStudentId(resultSet.getInt("studentId"));
             student.setFirstName(resultSet.getString("firstName"));
             ;
             student.setLastName(resultSet.getString("lastName"));
@@ -65,4 +65,6 @@ public class StudentDao implements StudentDAO {
                                 new String(student.getLastName()) },
                         new StudentMapper());
     }
+    
+    
 }

@@ -39,7 +39,7 @@ public class RecordDao implements RecordDAO {
                 record.setBookId(book.getBookId());
                 record.setBookRecord(bookRecord.concat(i.toString()));
                 record.setStatus("available");
-                record.setStudentId("");
+             //   record.setStudentId("");
                 this.insertRecord(record);
 
             }
@@ -51,19 +51,19 @@ public class RecordDao implements RecordDAO {
                 record.setBookId(book.getBookId());
                 record.setBookRecord(bookRecord.concat(i.toString()));
                 record.setStatus("available");
-                record.setStudentId("");
+                //record.setStudentId("");
                 this.insertRecord(record);
             }
         }
     }
-
+    
     public void insertRecord(Record record) {
         jdbcTemplate.update(
-                "INSERT into BookRecord values(?,?,?,?)",
-                new Object[] { new String(record.getBookRecord()),
-                        new String(record.getBookId()),
+                "INSERT into BookRecord (bookRecordId, bookId, status,studentId ) values(?,?,?,?)",
+                new Object[] {new String(record.getBookRecord()) 
+                        ,new Integer(record.getBookId()),
                         new String(record.getStatus()),
-                        new String(record.getStudentId()) });
+                        new Integer(record.getStudentId()) });
 
     }
 
@@ -79,9 +79,9 @@ public class RecordDao implements RecordDAO {
                 throws SQLException {
             Record record = new Record();
             record.setBookRecord(resultSet.getString("bookRecordId"));
-            record.setBookId(resultSet.getString("bookId"));
+            record.setBookId(resultSet.getInt("bookId"));
             record.setStatus(resultSet.getString("status"));
-            record.setStudentId(resultSet.getString("studentId"));
+            record.setStudentId(resultSet.getInt("studentId"));
 
             // TODO Auto-generated method stub
             return record;
@@ -98,12 +98,13 @@ public class RecordDao implements RecordDAO {
         while (itr.hasNext()) {
             Book book = (Book) itr.next();
             recordList = this.getBookStatus(book.getBookId());
+            
         }
         return recordList;
     }
 
     // and status=?,, "available"
-    public List<Record> getBookStatus(String id) {
+    public List<Record> getBookStatus(int id) {
         return jdbcTemplate
                 .query("SELECT bookRecordId,bookId,status,studentId from BookRecord where bookId=? ",
                         new Object[] { id }, new RecordMapper());
@@ -112,7 +113,7 @@ public class RecordDao implements RecordDAO {
     public List<Record> createSearchRecord(Record record) {
         return jdbcTemplate
                 .query("SELECT bookRecordId,bookId,status,studentId from BookRecord where bookRecordId=?",
-                        new Object[] { new String(record.getBookRecord()) },
+                        new Object[] { new Integer(record.getBookRecord()) },
                         new RecordMapper());
     }
 
@@ -140,7 +141,7 @@ public class RecordDao implements RecordDAO {
         jdbcTemplate
                 .update("UPDATE BookRecord set status=? ,studentId=? where bookRecordId=?",
                         new Object[] { "issued", student.getStudentId(),
-                                new String(record.getBookRecord()) });
+                                new Integer(record.getBookRecord()) });
     }
 
     public List<Record> getRecord() {
@@ -149,5 +150,7 @@ public class RecordDao implements RecordDAO {
                 "SELECT bookRecordId,bookId,status,studentId from BookRecord",
                 new RecordMapper());
     }
+
+	
 
 }

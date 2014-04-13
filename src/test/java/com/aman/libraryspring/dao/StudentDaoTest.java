@@ -3,12 +3,14 @@ package com.aman.libraryspring.dao;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.aman.libraryspring.DbConfiguration;
+
 import com.aman.libraryspring.domain.Student;
 
 public class StudentDaoTest {
@@ -18,9 +20,11 @@ public class StudentDaoTest {
 
     @BeforeClass
     public static void setUp() throws Exception {
-        DbConfiguration.populateSqls();
+        DbConfiguration.populateSqls("test-schema.sql");
 
     }
+    	
+    
 
     @Test
     public void testGetList() {
@@ -29,7 +33,8 @@ public class StudentDaoTest {
         student.setEmailId("er.amankumar@gmail.com");
         student.setAddress("Ashiana Greens");
         student.setPhoneNumber(99999);
-        student.setStudentId("student1");
+        //student.setStudentId("student1");
+        System.out.println("Here student id set is: "+student.getStudentId());
 
         studentDao.createStudent(student);
 
@@ -41,7 +46,7 @@ public class StudentDaoTest {
             assertEquals("er.amankumar@gmail.com", student.getEmailId());
             assertEquals("Ashiana Greens", student.getAddress());
             assertEquals(99999, student.getPhoneNumber());
-            assertEquals("student1", student.getStudentId());
+            assertEquals(1, student.getStudentId());
         }
 
     }
@@ -59,7 +64,9 @@ public class StudentDaoTest {
         student1.setEmailId("abhishake.dixit@gmail.com");
         student1.setAddress("MDI");
         student1.setPhoneNumber(99999);
-        student1.setStudentId("student2");
+        //student1.setStudentId("student2");
+        System.out.println("Here student id set is: "+student1.getStudentId());
+        System.out.println("Here student id set is: "+student2.getStudentId());
         studentDao.createStudent(student1);
         Iterator<Student> itr = studentDao.searchStudent(student2).iterator();
         while (itr.hasNext()) {

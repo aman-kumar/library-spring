@@ -20,14 +20,14 @@ public class StudentTest {
 
     @Test
     public void testGetStudentId() {
-        student.setStudentId("student1");
-        assertEquals("student1", student.getStudentId());
+        student.setStudentId(1);
+        assertEquals(1, student.getStudentId());
     }
 
     @Test
     public void testSetStudentId() {
-        student.setStudentId("student2");
-        assertEquals("student2", student.getStudentId());
+        student.setStudentId(2);
+        assertEquals(2, student.getStudentId());
 
     }
 

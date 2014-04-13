@@ -26,8 +26,8 @@ public class BookDao implements BookDAO {
 
     public void createBook(Book book) {
         jdbcTemplate.update(
-                "INSERT into Book values(?,?,?,?,?,?)",
-                new Object[] { new String(book.getBookId()),
+                "INSERT into Book (name, author, publication, description, noOfCopies) values(?,?,?,?,?)",
+                new Object[] {
                         new String(book.getName()),
                         new String(book.getAuthor()),
                         new String(book.getPublisher()),
@@ -48,7 +48,7 @@ public class BookDao implements BookDAO {
         public Book mapRow(ResultSet resultSet, int rowNum) throws SQLException {
             // TODO Auto-generated method stub
             Book book = new Book();
-            book.setBookId(resultSet.getString("bookId"));
+            book.setBookId(resultSet.getInt("bookId"));
             book.setAuthor(resultSet.getString("author"));
             book.setName(resultSet.getString("name"));
             book.setDescription(resultSet.getString("description"));

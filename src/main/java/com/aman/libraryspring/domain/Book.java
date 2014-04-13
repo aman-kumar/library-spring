@@ -5,7 +5,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class Book {
     private String name;
     private String author;
-    private String bookId;
+    private int bookId;
     private String description;
     private String publisher;
     private int copies;
@@ -26,11 +26,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getBookId() {
+    public int getBookId() {
         return bookId;
     }
 
-    public void setBookId(String bookId) {
+    public void setBookId(int bookId) {
         this.bookId = bookId;
     }
 

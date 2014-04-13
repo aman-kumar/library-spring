@@ -23,6 +23,7 @@ import com.aman.libraryspring.domain.Student;
  getRecord-->to get the updated record after issuing the book to the student.
  */
 public class RecordDaoTest {
+	
     Book book1 = new Book();
     Book book2 = new Book();
     Book book3 = new Book();
@@ -33,7 +34,7 @@ public class RecordDaoTest {
 
     @BeforeClass
     public static void setUp() throws Exception {
-        DbConfiguration.populateSqls();
+        DbConfiguration.populateSqls("test-schema.sql");
     }
 
     @AfterClass
@@ -48,9 +49,10 @@ public class RecordDaoTest {
      * 
      * @Test public void testInsertRecord() { fail("Not yet implemented"); }
      */
+	
     @Test
     public void testListRecord() {
-        book1.setBookId("book1");
+        book1.setBookId(1);
         book1.setAuthor("Joshua Bloch");
         book1.setDescription("Must read for java developer");
         book1.setName("Effective Java");
@@ -63,7 +65,7 @@ public class RecordDaoTest {
         Iterator<Record> itr = recordDao.listRecord().iterator();
 
         for (Integer i = 1; i <= recordDao.listRecord().size(); i++) {
-            assertEquals("book1", recordDao.listRecord().get(i - 1).getBookId());
+           assertEquals(1, recordDao.listRecord().get(i - 1).getBookId());
             assertEquals(value.concat(i.toString()), recordDao.listRecord()
                     .get(i - 1).getBookRecord());
             assertEquals("available", recordDao.listRecord().get(i - 1)
@@ -78,14 +80,14 @@ public class RecordDaoTest {
     @Test
     public void testGetRecordList() {
         // add book, search that book and then compare, book2
-        book2.setBookId("book2");
+        book2.setBookId(2);
         book2.setName("HeadFirst Java");
         book2.setAuthor("Cathy Siera");
         book2.setDescription("Must read for the new java learner");
         book2.setPublisher("Addison Wesley");
         book2.setCopies(10);
         bookDao.createBook(book2);
-        book3.setBookId("book3");
+       book3.setBookId(3);
         book3.setName("Pragmmatic Programmer");
         book3.setAuthor("Aman Kumar");
         book3.setDescription("Must read for the new java learner");
@@ -100,14 +102,15 @@ public class RecordDaoTest {
         // return recordDao.getRecordList(bookDao.searchBook(book));
         for (int i = 0; i < recordDao.getRecordList(bookDao.searchBook(book4))
                 .size(); i++) {
-            assertEquals("book2",
-                    recordDao.getRecordList(bookDao.searchBook(book4)).get(i)
+           assertEquals(2,
+                   recordDao.getRecordList(bookDao.searchBook(book4)).get(i)
                             .getBookId());
             assertEquals("", recordDao.getRecordList(bookDao.searchBook(book4))
                     .get(i).getStudentId());
 
         }
     }
+    
 
 }
 

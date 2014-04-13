@@ -45,14 +45,14 @@ public class BookTest {
 
     @Test
     public void testGetBookId() {
-        book.setBookId("book1");
-        assertEquals("book1", book.getBookId());
+        book.setBookId(1);
+        assertEquals(1, book.getBookId());
     }
 
     @Test
     public void testSetBookId() {
-        book.setBookId("book2");
-        assertEquals("book2", book.getBookId());
+        book.setBookId(2);
+        assertEquals(2, book.getBookId());
     }
 
     @Test

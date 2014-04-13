@@ -27,10 +27,12 @@
 			<form:form method="GET" action="addStudent">
 
 				<table>
+				<!--  
 					<tr>
 						<td><form:label path="studentId">ID</form:label></td>
 						<td><form:input path="studentId" size="35"></form:input></td>
 					</tr>
+					-->
 					<tr>
 						<td><form:label path="firstName">First Name</form:label></td>
 						<td><form:input path="firstName" size="35"></form:input></td>
