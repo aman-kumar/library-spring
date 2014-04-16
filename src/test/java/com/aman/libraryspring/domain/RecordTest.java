@@ -20,14 +20,14 @@ public class RecordTest {
 
     @Test
     public void testGetBookRecord() {
-        record.setBookRecord("bookRecord1");
-        assertEquals("bookRecord1", record.getBookRecord());
+        record.setBookRecord(1);
+        assertEquals(1, record.getBookRecord());
     }
 
     @Test
     public void testSetBookRecord() {
-        record.setBookRecord("bookRecord2");
-        assertEquals("bookRecord2", record.getBookRecord());
+        record.setBookRecord(2);
+        assertEquals(2, record.getBookRecord());
 
     }
 

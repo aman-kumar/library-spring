@@ -22,7 +22,7 @@ public class StudentRecordComboTest {
         student.setPhoneNumber(9899);
         student.setStudentId(1);
         record.setBookId(1);
-        record.setBookRecord("bookRecord1");
+        record.setBookRecord(1);
         record.setStatus("issued");
         record.setStudentId(1);
         studentRecordCombo = new StudentRecordCombo();
@@ -61,7 +61,7 @@ public class StudentRecordComboTest {
     @Test
     public void testGetRecord() {
         studentRecordCombo.setRecord(record);
-        assertEquals("bookRecord1", studentRecordCombo.getRecord()
+        assertEquals(1, studentRecordCombo.getRecord()
                 .getBookRecord());
         assertEquals(1, studentRecordCombo.getRecord().getBookId());
         assertEquals("issued", studentRecordCombo.getRecord().getStatus());
@@ -72,7 +72,7 @@ public class StudentRecordComboTest {
     @Test
     public void testSetRecord() {
         studentRecordCombo.setRecord(record);
-        assertEquals("bookRecord1", studentRecordCombo.getRecord()
+        assertEquals(1, studentRecordCombo.getRecord()
                 .getBookRecord());
         assertEquals(1, studentRecordCombo.getRecord().getBookId());
         assertEquals("issued", studentRecordCombo.getRecord().getStatus());

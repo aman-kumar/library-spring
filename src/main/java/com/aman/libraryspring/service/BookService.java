@@ -22,8 +22,8 @@ public class BookService {
 	// when(bookDao.listBook()).thenReturn("list");
 	// Service service=new Service();
 	// verify(service.getList());
-	public void create(Book book) {
-		bookDao.createBook(book);
+	public List<Book> create(Book book) {
+		return bookDao.createBook(book);
 
 	}
 

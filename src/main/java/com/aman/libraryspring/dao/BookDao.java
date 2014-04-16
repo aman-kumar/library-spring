@@ -24,7 +24,7 @@ public class BookDao implements BookDAO {
 
     }
 
-    public void createBook(Book book) {
+    public List<Book> createBook(Book book) {
         jdbcTemplate.update(
                 "INSERT into Book (name, author, publication, description, noOfCopies) values(?,?,?,?,?)",
                 new Object[] {
@@ -34,6 +34,13 @@ public class BookDao implements BookDAO {
                         new String(book.getDescription()),
                         new Integer(book.getCopies()) });
         System.out.println("Successfully inserted the book in the database");
+
+        
+         List<Book> bookList=jdbcTemplate
+                .query("SELECT bookId,name,author,publication,description,noOfCopies from Book WHERE name=?",new Object[] {
+                        new String(book.getName()) }, new BookMapper());
+                        
+         return bookList;
 
     }
 

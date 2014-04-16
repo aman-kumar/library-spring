@@ -81,8 +81,11 @@ public class BookController {
     @RequestMapping(value = "/addBook", method = RequestMethod.POST)
     public String addBook(@ModelAttribute Book book, Model model) {
 
-        bookService.create(book);
-recordService.create(book);
+        List<Book> bookList=bookService.create(book);
+        
+        System.out.println("created book");
+        recordService.create(bookList.get(0));
+        System.out.println("created record");
         books = bookService.getList();
         model.addAttribute("books", books);
         return "BookUserScreen";

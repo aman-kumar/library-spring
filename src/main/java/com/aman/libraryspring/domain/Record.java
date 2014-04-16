@@ -4,16 +4,16 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class Record {
 
-    private String bookRecord;
+    private int bookRecord;
     private int bookId;
     private String status;
     private int studentId;
 
-    public String getBookRecord() {
+    public int getBookRecord() {
         return bookRecord;
     }
 
-    public void setBookRecord(String bookRecord) {
+    public void setBookRecord(int bookRecord) {
         this.bookRecord = bookRecord;
     }
 

@@ -60,13 +60,14 @@ public class RecordDaoTest {
         book1.setCopies(5);
         bookDao.createBook(book1);
         recordDao.createRecord(book1);
+        
         String value = "bookRecord";
         assertEquals(5, recordDao.listRecord().size());
         Iterator<Record> itr = recordDao.listRecord().iterator();
 
         for (Integer i = 1; i <= recordDao.listRecord().size(); i++) {
-           assertEquals(1, recordDao.listRecord().get(i - 1).getBookId());
-            assertEquals(value.concat(i.toString()), recordDao.listRecord()
+           //assertEquals(1, recordDao.listRecord().get(i - 1).getBookId());
+            assertEquals(i.intValue(), recordDao.listRecord()
                     .get(i - 1).getBookRecord());
             assertEquals("available", recordDao.listRecord().get(i - 1)
                     .getStatus());
@@ -106,29 +107,11 @@ public class RecordDaoTest {
                    recordDao.getRecordList(bookDao.searchBook(book4)).get(i)
                             .getBookId());
             assertEquals("", recordDao.getRecordList(bookDao.searchBook(book4))
-                    .get(i).getStudentId());
+                  .get(i).getStudentId());
 
         }
     }
     
 
 }
-
-/*
- * public List<Record> createSearchRecord(Record record) { return jdbcTemplate
- * .query(
- * "SELECT bookRecordId,bookId,status,studentId from BookRecord where bookRecordId=?"
- * , new Object[] { new String(record.getBookRecord()) }, new RecordMapper()); }
- */
-/*
- * @Test public void testGetBookStatus() { fail("Not yet implemented"); }
- * 
- * 
- * 
- * @Test public void testUpdateRecord() { fail("Not yet implemented"); }
- * 
- * @Test public void testUpdate() { fail("Not yet implemented"); }
- * 
- * @Test public void testGetRecord() { fail("Not yet implemented"); }
- */
 

@@ -27,7 +27,7 @@ public class RecordDao implements RecordDAO {
     }
 //In this function i m getting the exception related to foreign key
     public void createRecord(Book book) {
-
+System.out.println("Incoming book id inside recorddao is :" +book.toString());
         String bookRecord = "bookRecord";
         Record record = new Record();
         Integer i;
@@ -37,11 +37,14 @@ public class RecordDao implements RecordDAO {
             for (i = 1; i <= book.getCopies(); i++) {
 
                 record.setBookId(book.getBookId());
-                record.setBookRecord(bookRecord.concat(i.toString()));
+                //record.setBookRecord(bookRecord.concat(i.toString()));
+                record.setBookRecord(i);
                 record.setStatus("available");
-             //   record.setStudentId("");
+                //record.setStudentId("".);
+                
+                System.out.println("record to be inserted : "+record.toString());
                 this.insertRecord(record);
-
+                System.out.println("inserted list : "+recordDao.listRecord().toString());
             }
 
         } else {
@@ -49,19 +52,21 @@ public class RecordDao implements RecordDAO {
             int copies = book.getCopies() + size;
             for (i = size + 1; i <= copies; i++) {
                 record.setBookId(book.getBookId());
-                record.setBookRecord(bookRecord.concat(i.toString()));
+                //record.setBookRecord(bookRecord.concat(i.toString()));
+                record.setBookRecord(i);
                 record.setStatus("available");
                 //record.setStudentId("");
+                System.out.println("record to be inserted : "+record.toString());
                 this.insertRecord(record);
+                System.out.println("inserted list : "+recordDao.listRecord().toString());
             }
         }
     }
     
     public void insertRecord(Record record) {
         jdbcTemplate.update(
-                "INSERT into BookRecord (bookRecordId, bookId, status,studentId ) values(?,?,?,?)",
-                new Object[] {new String(record.getBookRecord()) 
-                        ,new Integer(record.getBookId()),
+                "INSERT into BookRecord (bookRecordId,bookId,status,studentId ) values(?,?,?,?)",
+                new Object[] {new Integer(record.getBookRecord()),new Integer(record.getBookId()),
                         new String(record.getStatus()),
                         new Integer(record.getStudentId()) });
 
@@ -78,7 +83,7 @@ public class RecordDao implements RecordDAO {
         public Record mapRow(ResultSet resultSet, int rowNum)
                 throws SQLException {
             Record record = new Record();
-            record.setBookRecord(resultSet.getString("bookRecordId"));
+            record.setBookRecord(resultSet.getInt("bookRecordId"));
             record.setBookId(resultSet.getInt("bookId"));
             record.setStatus(resultSet.getString("status"));
             record.setStudentId(resultSet.getInt("studentId"));
