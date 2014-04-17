@@ -22,30 +22,25 @@
 				<h2>Books Details Entry Page:</h2>
 				<form:form method="POST" action="addBook">
 					<table>
-						<!--  
+						
 						<tr>
-							<td><form:label path="bookId">Id</form:label></td>
-							<td><form:input path="bookId" size="35"></form:input></td>
-						</tr>
-						-->
-						<tr>
-							<td><form:label path="name">Name</form:label></td>
+							<td><form:label path="name">Name<span style="color: red;" >*</span></form:label></td>
 							<td><form:input path="name" size="35"></form:input></td>
 						</tr>
 						<tr>
-							<td><form:label path="author">Author</form:label></td>
+							<td><form:label path="author">Author<span style="color: red;" >*</span></form:label></td>
 							<td><form:input path="author" size="35"></form:input></td>
 						</tr>
 						<tr>
-							<td><form:label path="description">Description</form:label></td>
+							<td><form:label path="description">Description<span style="color: red;" >*</span></form:label></td>
 							<td><form:input path="description" size="35"></form:input></td>
 						</tr>
 						<tr>
-							<td><form:label path="publisher">Publisher</form:label></td>
+							<td><form:label path="publisher">Publisher<span style="color: red;" >*</span></form:label></td>
 							<td><form:input path="publisher" size="35"></form:input></td>
 						</tr>
 						<tr>
-							<td><form:label path="copies">Copies</form:label></td>
+							<td><form:label path="copies">Copies<span style="color: red;" >*</span></form:label></td>
 							<td><form:input path="copies" size="35"></form:input></td>
 						</tr>
 						<tr>

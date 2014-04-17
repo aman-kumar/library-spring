@@ -27,30 +27,25 @@
 			<form:form method="GET" action="addStudent">
 
 				<table>
-				<!--  
+				
 					<tr>
-						<td><form:label path="studentId">ID</form:label></td>
-						<td><form:input path="studentId" size="35"></form:input></td>
-					</tr>
-					-->
-					<tr>
-						<td><form:label path="firstName">First Name</form:label></td>
+						<td><form:label path="firstName">First Name<span style="color: red;" >*</span></form:label></td>
 						<td><form:input path="firstName" size="35"></form:input></td>
 					</tr>
 					<tr>
-						<td><form:label path="lastName">Last Name</form:label></td>
+						<td><form:label path="lastName">Last Name<span style="color: red;" >*</span></form:label></td>
 						<td><form:input path="lastName" size="35"></form:input></td>
 					</tr>
 					<tr>
-						<td><form:label path="emailId">Email Id</form:label></td>
+						<td><form:label path="emailId">Email Id<span style="color: red;" >*</span></form:label></td>
 						<td><form:input path="emailId" size="60"></form:input></td>
 					</tr>
 					<tr>
-						<td><form:label path="address">Address</form:label></td>
+						<td><form:label path="address">Address<span style="color: red;" >*</span></form:label></td>
 						<td><form:input path="address" size="60"></form:input></td>
 					</tr>
 					<tr>
-						<td><form:label path="phoneNumber" >PhoneNumber</form:label></td>
+						<td><form:label path="phoneNumber" >PhoneNumber<span style="color: red;" >*</span></form:label></td>
 						
 						<td><form:input path="phoneNumber" size="11" ></form:input></td>
 					</tr>
