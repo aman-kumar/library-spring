@@ -6,6 +6,61 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>BooksEntryPage</title>
+<script type="text/javascript">
+//validateName
+//validateAuthor
+//validateDescription
+//validatePublisher
+//validateCopies
+
+// main function validateInputs
+function validateEntry(fld,min,max){
+	var error="";
+	
+	var illegalChars = /^[A-Za-z\s]+$/; // allow letters, numbers, and underscores
+	
+	 if (fld.value == "") {
+	        error = "You didn't enter a value of field: "+fld.name +"\n" ;
+	    } else if ((fld.value.length < min) || (fld.value.length > max)) {
+	        
+ 	        error = "The value entered is of wrong length of field: "+fld.name +"\n";
+	    } else if (!(illegalChars.test(fld.value))) {
+	        
+	        error = "The username contains illegal characters.\n "+fld.name;
+	    } 
+	    return error;	
+}
+function validateLength(fld){
+	var error="";
+	var illegalChars = /^[0-9]+$/;
+	 if (fld.value == "") {
+	        error = "You didn't enter a value of field: "+fld.name +"\n" ;
+	    } else if ((fld.value == 0) || (fld.value > 30)) {
+	        
+ 	        error = "The value entered is invalid for: "+fld.name +"\n";
+	    } else if (!(illegalChars.test(fld.value))) {
+	        
+	        error = "The username contains illegal characters.\n "+fld.name;
+	    } 
+	    return error;	
+}
+function validateInputs(form){
+	var reason="";
+	reason+=validateEntry(form.name,2,24);
+	reason+=validateEntry(form.author,2,24);
+	reason+=validateEntry(form.description,2,52);publisher
+	reason+=validateEntry(form.publisher,2,24);
+	reason+=validateLength(form.copies);
+	if(reason !=""){
+		alert("Error in: "+ name +"field value: "+reason);
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+</script>
 </head>
 <body>
 	<table align="left" border="0">
@@ -20,36 +75,40 @@
 				</table>
 				<br>
 				<h2>Books Details Entry Page:</h2>
-				<form:form method="POST" action="addBook">
+				<form:form name="Bookform" method="POST" action="addBook" onsubmit=" return validateInputs(this)" >
 					<table>
 						
 						<tr>
 							<td><form:label path="name">Name<span style="color: red;" >*</span></form:label></td>
-							<td><form:input path="name" size="35"></form:input></td>
+							<td><form:input title="name" path="name" size="35" ></form:input></td>
 						</tr>
 						<tr>
 							<td><form:label path="author">Author<span style="color: red;" >*</span></form:label></td>
-							<td><form:input path="author" size="35"></form:input></td>
+							<td><form:input  title="author" path="author" size="35"></form:input></td>
 						</tr>
 						<tr>
 							<td><form:label path="description">Description<span style="color: red;" >*</span></form:label></td>
-							<td><form:input path="description" size="35"></form:input></td>
+							<td><form:input title="description" path="description" size="35"></form:input></td>
 						</tr>
 						<tr>
 							<td><form:label path="publisher">Publisher<span style="color: red;" >*</span></form:label></td>
-							<td><form:input path="publisher" size="35"></form:input></td>
+							<td><form:input title="publisher" path="publisher" size="35"></form:input></td>
 						</tr>
 						<tr>
 							<td><form:label path="copies">Copies<span style="color: red;" >*</span></form:label></td>
-							<td><form:input path="copies" size="35"></form:input></td>
+							<td><form:input  title="copies" path="copies" size="35"></form:input></td>
 						</tr>
 						<tr>
-							<td><input type="submit" value="Submit" /></td>
+							<td><input type="submit" value="Submit" onclick=""/></td>
+
 						</tr>
+
+
 
 					</table>
 
-				</form:form>
+
+ 				</form:form	>
 			</table>
 </body>
 </html>
