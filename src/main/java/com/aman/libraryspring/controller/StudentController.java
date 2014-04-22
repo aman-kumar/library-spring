@@ -27,7 +27,7 @@ public class StudentController {
 
     List<Student> students = new ArrayList<Student>();
 
-    @RequestMapping(value = "/addStudent", method = RequestMethod.GET)
+    @RequestMapping(value = "/addStudent", method = RequestMethod.POST)
     public String addStudent(@ModelAttribute Student student, Model model) {
     	System.out.println("Student "+student);
         studentService.create(student);

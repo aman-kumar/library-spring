@@ -26,7 +26,7 @@ function validateEntry(fld,min,max){
  	        error = "The value entered is of wrong length of field: "+fld.name +"\n";
 	    } else if (!(illegalChars.test(fld.value))) {
 	        
-	        error = "The username contains illegal characters.\n "+fld.name;
+	        error = "The field: "+fld.name +"contains illegal characters.\n ";
 	    } 
 	    return error;	
 }
@@ -40,7 +40,7 @@ function validateLength(fld){
  	        error = "The value entered is invalid for: "+fld.name +"\n";
 	    } else if (!(illegalChars.test(fld.value))) {
 	        
-	        error = "The username contains illegal characters.\n "+fld.name;
+	    	error = "The field: "+fld.name +"contains illegal characters.\n ";
 	    } 
 	    return error;	
 }
@@ -48,11 +48,11 @@ function validateInputs(form){
 	var reason="";
 	reason+=validateEntry(form.name,2,24);
 	reason+=validateEntry(form.author,2,24);
-	reason+=validateEntry(form.description,2,52);publisher
+	reason+=validateEntry(form.description,2,52);
 	reason+=validateEntry(form.publisher,2,24);
 	reason+=validateLength(form.copies);
 	if(reason !=""){
-		alert("Error in: "+ name +"field value: "+reason);
+		alert("Error in data entered: "+reason +"\n");
 		return false;
 	}
 	else{
@@ -99,7 +99,7 @@ function validateInputs(form){
 							<td><form:input  title="copies" path="copies" size="35"></form:input></td>
 						</tr>
 						<tr>
-							<td><input type="submit" value="Submit" onclick=""/></td>
+							<td><input type="submit" value="Submit"/></td>
 
 						</tr>
 
