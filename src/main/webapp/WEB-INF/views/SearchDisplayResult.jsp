@@ -9,36 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Search Display Result</title>
-<script type="text/javascript">
-function submitForm(){
-	/*var radioButtonSelectedValue = "";
-	var AllFormElements = window.document.getElementById("recordForm").elements;
-    for (i = 0; i < AllFormElements.length; i++) 
-    {
-        if (AllFormElements[i].type == 'radio') 
-        {
-            var ThisRadio = AllFormElements[i].name;
-            var ThisChecked = 'No';
-            var AllRadioOptions = document.getElementsByName(ThisRadio);
-            for (x = 0; x < AllRadioOptions.length; x++)
-            {
-                 if (AllRadioOptions[x].checked && ThisChecked == 'No')
-                 {
-                     ThisChecked = 'Yes';
-                     radioButtonSelectedValue = AllRadioOptions[x].value;
-                     break;
-                 } 
-            }   
-            var AlreadySearched = ShowAlert.indexOf(ThisRadio);
-            if (ThisChecked == 'No' && AlreadySearched == -1)
-            {
-            ShowAlert = ShowAlert + ThisRadio + ' radio button must be answered\n';
-            }     
-        }	
-        document.forms["recordForm"]["selectedRecord"].value = radioButtonSelectedValue;*/
-	document.forms[0].submit();
-}
-</script>
+
 </head>
 <body>
 <table border="0">
@@ -94,13 +65,14 @@ function submitForm(){
 						</tr>
 						<%
 							//copies=book.getCopies();
+								}
 									status = record.getStatus();
 									if ("available".equals(status)) {
 										bookAvailable = true;
 									}
 
-								}
-
+								//}
+						
 							}
 						%>
 						<input name="selectedRecord" type="hidden" value="">

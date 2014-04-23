@@ -67,10 +67,21 @@ public class BookDao implements BookDAO {
     }
 
     public List<Book> searchBook(Book book) {
-
+/*
         return jdbcTemplate
                 .query("SELECT bookId,name,author,publication,description,noOfCopies from Book WHERE author=? and name=?",
                         new Object[] { new String(book.getAuthor()),
                                 new String(book.getName()) }, new BookMapper());
+                                */
+    	if((book.getAuthor() == "") && (book.getName() == "") ){
+    	      return      jdbcTemplate
+    	                .query("SELECT bookId,name,author,publication,description,noOfCopies from Book",new BookMapper());
+    	      }//1
+    	      else{
+    	        return jdbcTemplate
+    	                .query("SELECT bookId,name,author,publication,description,noOfCopies from Book WHERE author=? or name=?",
+    	                        new Object[] { new String(book.getAuthor()),
+    	                                new String(book.getName()) }, new BookMapper());
     }
+}
 }

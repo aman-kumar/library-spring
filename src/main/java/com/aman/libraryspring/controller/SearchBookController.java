@@ -47,6 +47,7 @@ public class SearchBookController {
     public String searchBook(@ModelAttribute Book book, Model model) {
        // System.out.println(book.getName());
         recordList = searchBookService.search(book);
+        System.out.println("Record list size:  "+recordList.size());
      //   System.out.println(recordList.get(0).getStatus());
         model.addAttribute("recordList", recordList);
         return "SearchDisplayResult";
