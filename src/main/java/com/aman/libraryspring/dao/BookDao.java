@@ -73,15 +73,18 @@ public class BookDao implements BookDAO {
                         new Object[] { new String(book.getAuthor()),
                                 new String(book.getName()) }, new BookMapper());
                                 */
+    	/*
     	if((book.getAuthor() == "") && (book.getName() == "") ){
-    	      return      jdbcTemplate
-    	                .query("SELECT bookId,name,author,publication,description,noOfCopies from Book",new BookMapper());
+    	      //return      jdbcTemplate
+    	        //        .query("SELECT bookId,name,author,publication,description,noOfCopies from Book",new BookMapper());
+    		return reco
     	      }//1
     	      else{
+    	    	  */
     	        return jdbcTemplate
     	                .query("SELECT bookId,name,author,publication,description,noOfCopies from Book WHERE author=? or name=?",
     	                        new Object[] { new String(book.getAuthor()),
     	                                new String(book.getName()) }, new BookMapper());
     }
 }
-}
+

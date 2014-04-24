@@ -16,9 +16,9 @@ import com.aman.libraryspring.domain.Book;
 import com.aman.libraryspring.domain.Record;
 import com.aman.libraryspring.domain.Student;
 import com.aman.libraryspring.interfaces.RecordDAO;
-
+//implements RecordDAO {
 @Repository
-public class RecordDao implements RecordDAO {
+public class RecordDao {
     private JdbcTemplate jdbcTemplate;
 
     public RecordDao() {
@@ -93,10 +93,29 @@ System.out.println("Incoming book id inside recorddao is :" +book.toString());
         }
 
     }
-
+    //public List<Record> getRecordList(List<Book> bookList)
+   
     public List<Record> getRecordList(List<Book> bookList) {
-
+/*
         List<Book> list = new ArrayList<Book>();
+        list = bookList;
+        Iterator<Book> itr = list.iterator();
+        List<Record> recordList = new ArrayList<Record>();
+        while (itr.hasNext()) {
+            Book book = (Book) itr.next();
+            recordList = this.getBookStatus(book.getBookId());
+            
+        }
+        */
+    	
+    	//recordList.add( this.getBookStatus(book.getBookId()).get(0));
+    
+    	 //List<Record> recordList = new ArrayList<Record>();     
+           // recordList.add(this.getBookStatus(book.getBookId()).get(0));
+            
+        
+       // return recordList;
+    	List<Book> list = new ArrayList<Book>();
         list = bookList;
         Iterator<Book> itr = list.iterator();
         List<Record> recordList = new ArrayList<Record>();

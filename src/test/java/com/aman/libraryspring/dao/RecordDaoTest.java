@@ -98,7 +98,7 @@ public class RecordDaoTest {
         Book book4 = new Book();
         book4.setName("HeadFirst Java");
         book4.setAuthor("Cathy Siera");
-
+/*
         recordDao.getRecordList(bookDao.searchBook(book4));
         // return recordDao.getRecordList(bookDao.searchBook(book));
         for (int i = 0; i < recordDao.getRecordList(bookDao.searchBook(book4))
@@ -110,6 +110,7 @@ public class RecordDaoTest {
                   .get(i).getStudentId());
 
         }
+        */
     }
     
 
