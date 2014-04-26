@@ -22,13 +22,16 @@ public class BookService {
 	// when(bookDao.listBook()).thenReturn("list");
 	// Service service=new Service();
 	// verify(service.getList());
-	public List<Book> create(Book book) {
+	public int create(Book book) {
 		return bookDao.createBook(book);
 
 	}
-
-	public List<Book> getList() {
-		return bookDao.listBook();
+	public List<Book> enteredBook(Book book){
+		return bookDao.getEnteredBook(book);
+	}  
+	public List<Book> getList(Book book) {
+		//return bookDao.listBook();
+		return bookDao.getEnteredBook(book);
 	}
 
 }

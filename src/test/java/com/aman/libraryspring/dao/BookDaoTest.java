@@ -1,5 +1,6 @@
 package com.aman.libraryspring.dao;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Iterator;
@@ -31,7 +32,10 @@ public class BookDaoTest {
           book.setDescription("Must read for every java developer");
           book.setPublisher("Addison Wesley");
           book.setCopies(10);
-          List<Book> bookList=bookDao.createBook(book);
+          int i=bookDao.createBook(book);
+          assertEquals(1,i);
+          
+          List<Book>bookList=bookDao.listBook();
           System.out.println(bookList.get(0).toString());
           assertEquals("Effective Java", bookList.get(0).getName());
           assertEquals("Joshua Bloch", bookList.get(0).getAuthor());
@@ -50,7 +54,8 @@ public class BookDaoTest {
         book2.setDescription("Must read for every java developer");
         book2.setPublisher("Addison Wesley");
         book2.setCopies(10);
-        List<Book> list =bookDao.createBook(book2);
+        bookDao.createBook(book2);
+        List<Book> list =bookDao.listBook();
         System.out.println("bookid is :" +list.get(1).getBookId());
         assertEquals("Effective Java", list.get(1).getName());
         assertEquals("Joshua Bloch", list.get(1).getAuthor());
@@ -69,7 +74,8 @@ public class BookDaoTest {
         book3.setDescription("Must read for every java developer");
         book3.setPublisher("Oreilly");
         book3.setCopies(10);
-        List<Book> listBook=bookDao.createBook(book3);
+        bookDao.createBook(book3);
+        List<Book> listBook=bookDao.listBook();
         System.out.println("bookid for book3 is :" +listBook.get(0).getBookId());
         Iterator<Book> itr = bookDao.searchBook(book3).iterator();
         while (itr.hasNext()) {
@@ -83,7 +89,25 @@ public class BookDaoTest {
         }
 
     }
-
+//public List<Book> getEnteredBook(Book book) {
+    @Test
+    public void testGetEnteredBook(){
+    	book3.setName("HeadFirst Java");
+        book3.setAuthor("Cathy Siera");
+        //book2.setBookId("book2");
+        book3.setDescription("Must read for every java developer");
+        book3.setPublisher("Oreilly");
+        book3.setCopies(10);
+        bookDao.createBook(book3);
+        
+        assertEquals("HeadFirst Java", bookDao.getEnteredBook(book3).get(0).getName());
+        assertEquals("Cathy Siera", bookDao.getEnteredBook(book3).get(0).getAuthor());
+        assertEquals("Must read for every java developer", bookDao.getEnteredBook(book3).get(0).getDescription());
+        assertEquals("Oreilly", bookDao.getEnteredBook(book3).get(0).getPublisher());
+        
+    	assertNotSame(book3.getBookId(),bookDao.getEnteredBook(book3).get(0).getBookId());
+    	
+    }
     @AfterClass
     public static void tearDown() throws Exception {
         DbConfiguration.tearDownSchema();

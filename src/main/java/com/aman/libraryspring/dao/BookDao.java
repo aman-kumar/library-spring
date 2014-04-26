@@ -24,8 +24,8 @@ public class BookDao implements BookDAO {
 
     }
 
-    public List<Book> createBook(Book book) {
-        jdbcTemplate.update(
+    public int createBook(Book book) {
+        int i=jdbcTemplate.update(
                 "INSERT into Book (name, author, publication, description, noOfCopies) values(?,?,?,?,?)",
                 new Object[] {
                         new String(book.getName()),
@@ -33,15 +33,18 @@ public class BookDao implements BookDAO {
                         new String(book.getPublisher()),
                         new String(book.getDescription()),
                         new Integer(book.getCopies()) });
-        System.out.println("Successfully inserted the book in the database");
-
+        System.out.println("Successfully inserted the book in the database, return of Update in jdbcTemplate is "+i );
+return i;
         
-         List<Book> bookList=jdbcTemplate
-                .query("SELECT bookId,name,author,publication,description,noOfCopies from Book WHERE name=?",new Object[] {
-                        new String(book.getName()) }, new BookMapper());
-                        
-         return bookList;
+        
 
+    }
+    public List<Book> getEnteredBook(Book book) {
+    	 List<Book> bookList=jdbcTemplate
+                 .query("SELECT bookId,name,author,publication,description,noOfCopies from Book WHERE name=?",new Object[] {
+                         new String(book.getName()) }, new BookMapper());
+                         
+          return bookList;
     }
 
     public List<Book> listBook() {
@@ -67,20 +70,7 @@ public class BookDao implements BookDAO {
     }
 
     public List<Book> searchBook(Book book) {
-/*
-        return jdbcTemplate
-                .query("SELECT bookId,name,author,publication,description,noOfCopies from Book WHERE author=? and name=?",
-                        new Object[] { new String(book.getAuthor()),
-                                new String(book.getName()) }, new BookMapper());
-                                */
-    	/*
-    	if((book.getAuthor() == "") && (book.getName() == "") ){
-    	      //return      jdbcTemplate
-    	        //        .query("SELECT bookId,name,author,publication,description,noOfCopies from Book",new BookMapper());
-    		return reco
-    	      }//1
-    	      else{
-    	    	  */
+
     	        return jdbcTemplate
     	                .query("SELECT bookId,name,author,publication,description,noOfCopies from Book WHERE author=? or name=?",
     	                        new Object[] { new String(book.getAuthor()),

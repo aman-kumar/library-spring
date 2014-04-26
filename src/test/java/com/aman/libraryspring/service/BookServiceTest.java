@@ -43,9 +43,10 @@ public class BookServiceTest {
 
 	@Test
 	public void testGetList() {
-		when(bookDao.listBook()).thenReturn(bookList);
-		List<Book> resultList = service.getList();
+		when(bookDao.getEnteredBook(mockedBook2)).thenReturn(bookList);
+		List<Book> resultList = service.getList(mockedBook2);
 		assertNotNull("list should not be null", resultList);
-		verify(bookDao).listBook();
+		
+		verify(bookDao).getEnteredBook(mockedBook2);
 	}
 }

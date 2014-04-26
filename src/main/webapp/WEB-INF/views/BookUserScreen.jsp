@@ -24,6 +24,7 @@
 		</tr>
 		
 	</table>
+	<!--  
 	</td>
 	</tr>
 	<tr>
@@ -41,28 +42,29 @@
 			<th width="15%">Copies</th>
 		</tr>
 		<%
-			List<Book> bookList = new ArrayList<Book>();
-			bookList = (ArrayList<Book>) request.getAttribute("books");
-			Iterator<Book> itr = bookList.iterator();
-			while (itr.hasNext()) {
-				Book book = (Book) itr.next();
+		//	List<Book> bookList = new ArrayList<Book>();
+			//bookList = (ArrayList<Book>) request.getAttribute("books");
+			//Iterator<Book> itr = bookList.iterator();
+			//while (itr.hasNext()) {
+				//Book book = (Book) itr.next();
 		%>
-		<tr>
-			<td width="15%"><%=book.getBookId()%></td>
-			<td width="15%"><%=book.getName()%></td>
-			<td width="15%"><%=book.getAuthor()%></td>
-			<td width="15%"><%=book.getPublisher()%></td>
-			<td width="15%"><%=book.getDescription()%></td>
-			<td width="15%"><%=book.getCopies()%></td>
-
+	
 		</tr>
 		<%
-			}
+			//}
 		%>
 
 	</table>
 	</td>
 	</tr>
 	</table>
+	-->
+	<%
+			List<Book> bookList = new ArrayList<Book>();
+			bookList = (ArrayList<Book>) request.getAttribute("books");
+			Book book=bookList.get(0);
+		%>
+		<br><br>
+		<b>Book: <%=book.getName()%> has been successfully inserted.<b><br><br> 
 </body>
 </html>
