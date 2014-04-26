@@ -55,14 +55,14 @@ public class SearchBookServiceTest {
 
 	@Test
 	public void testSearch() {
-/*
+
 		when(recordDao.getRecordList(bookDao.searchBook(book))).thenReturn(
 				recordList);
 		List<Record> resultList = service.search(book);
 		System.out.println("Result --> " + resultList);
 		assertNotNull("list should not be null", resultList);
 		verify(recordDao).getRecordList(bookDao.searchBook(book));
-		*/
+
 	}
 
 }

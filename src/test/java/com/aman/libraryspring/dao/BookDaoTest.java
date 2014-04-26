@@ -76,8 +76,7 @@ public class BookDaoTest {
             Book book4 = itr.next();
             assertEquals("Cathy Siera", book4.getAuthor());
             assertEquals("HeadFirst Java", book4.getName());
-         //   assertEquals("book2", book4.getBookId());
-            assertEquals("Must read for every java developer",
+          assertEquals("Must read for every java developer",
                     book4.getDescription());
             assertEquals("Oreilly", book4.getPublisher());
             assertEquals(10, book4.getCopies());

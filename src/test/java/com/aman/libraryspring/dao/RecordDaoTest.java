@@ -13,15 +13,6 @@ import com.aman.libraryspring.domain.Book;
 import com.aman.libraryspring.domain.Record;
 import com.aman.libraryspring.domain.Student;
 
-/*
- listRecord --> initial after entering the record of the book
-
- getRecordList-->while searching the book , it returns the list of the book --> record
-
- createSearchRecord -->again returns the book record for issue book , after selecting the book for issue purpose
-
- getRecord-->to get the updated record after issuing the book to the student.
- */
 public class RecordDaoTest {
 	
     Book book1 = new Book();
@@ -42,14 +33,6 @@ public class RecordDaoTest {
         DbConfiguration.tearDownSchema();
     }
 
-    /*
-     * @Test public void testRecordDao() { fail("Not yet implemented"); }
-     * 
-     * @Test public void testCreateRecord() { fail("Not yet implemented"); }
-     * 
-     * @Test public void testInsertRecord() { fail("Not yet implemented"); }
-     */
-	
     @Test
     public void testListRecord() {
         book1.setBookId(1);
@@ -98,7 +81,7 @@ public class RecordDaoTest {
         Book book4 = new Book();
         book4.setName("HeadFirst Java");
         book4.setAuthor("Cathy Siera");
-/*
+
         recordDao.getRecordList(bookDao.searchBook(book4));
         // return recordDao.getRecordList(bookDao.searchBook(book));
         for (int i = 0; i < recordDao.getRecordList(bookDao.searchBook(book4))
@@ -110,7 +93,7 @@ public class RecordDaoTest {
                   .get(i).getStudentId());
 
         }
-        */
+        
     }
     
 
