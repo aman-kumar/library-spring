@@ -26,11 +26,11 @@
 
 				<table>
 					<tr>
-						<td><form:label path="name">Name<span style="color: red;" >*</span></form:label></td>
+						<td><form:label path="name">Name</form:label></td>
 						<td><form:input path="name" size="35"></form:input></td>
 					</tr>
 					<tr>
-						<td><form:label path="author">Author<span style="color: red;" >*</span></form:label></td>
+						<td><form:label path="author">Author</form:label></td>
 						<td><form:input path="author" size="35"></form:input></td>
 					</tr>
 					

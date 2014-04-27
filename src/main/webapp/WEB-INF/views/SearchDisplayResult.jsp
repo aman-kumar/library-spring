@@ -35,7 +35,7 @@
 				<table align="left" width="2" border="3" bordercolor="black">
 					<tr>
 						<th width="15%">BookRecordId</th>
-						<th width="15%">BookId</th>
+					<!-- <th width="15%">BookId</th> -->
 						<th width="15%">Status</th>
 						<th width="15%">StudentId</th>
 					</tr>
@@ -58,19 +58,18 @@
 							<td width="15%"><input type="radio"
 								name=<%=record.getBookRecord()%> value=><%=record.getBookRecord()%>
 							</td>
-							<td width="15%"><%=record.getBookId()%></td>
+						<!-- <td width="15%"></td> -->
 							<td width="15%"><%=record.getStatus()%></td>
 							<td width="15%"><%=record.getStudentId()%></td>
 
 						</tr>
 						<%
-							//copies=book.getCopies();
-								}
+						
 									status = record.getStatus();
 									if ("available".equals(status)) {
 										bookAvailable = true;
 									}
-
+						}
 								//}
 						
 							}
@@ -79,13 +78,19 @@
 					
 
 
-				</table> <%
+				</table><br>
+				<br>
+				 <%
  	if (bookAvailable) {
  %> <br> <br> <br> The book can be issued <br> <br>
-				<input type="submit" name="submitRecordForm" onClick="submitForm()"> <%
+				<button type="submit">IssueBook</button>
+				<%
  	} else {
- %> The book cannot be issued <br> <%
- 	}
+ %><br><br>
+ <br>
+  The book cannot be issued <br> 
+ <%
+ 	}	
  %>
  </form>
 		</tr>
