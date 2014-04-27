@@ -29,8 +29,18 @@
 <tr>
 <td><%!int copies;
 	Record record;
-	String status;%>
-
+	String status;
+	%>
+	<% 
+	List<Record> recordList1 = (ArrayList<Record>) request.getAttribute("recordList");
+	if(recordList1.size()==0){
+	%>
+	<br>
+<b>No available book for Search criteria</b>
+<br><br>
+<%
+	}else{
+%>
 
 				<table align="left" width="2" border="3" bordercolor="black">
 					<tr>
@@ -42,7 +52,7 @@
 					<%
 						boolean bookAvailable = false;
 						List<Record> recordList = (ArrayList<Record>) request
-								.getAttribute("recordList"); // pwm.println("The book has been located in the database");
+								.getAttribute("recordList"); 
 						int recordListSize = 0;
 						if (recordList != null && recordList.size() > 0) {
 					%>
@@ -90,7 +100,8 @@
  <br>
   The book cannot be issued <br> 
  <%
- 	}	
+ 	}
+				 }
  %>
  </form>
 		</tr>
