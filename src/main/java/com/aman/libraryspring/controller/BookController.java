@@ -81,7 +81,13 @@ public class BookController {
     @RequestMapping(value = "/addBook", method = RequestMethod.POST)
     public String addBook(@ModelAttribute Book book, Model model) {
 
-        
+    	List<Book> initialFindBookList =bookService.findBookList(book);
+    	if(initialFindBookList.size() > 0){
+    		System.out.println("Inside findBookList portion of code");
+    		model.addAttribute("updateBook", initialFindBookList);
+    		return "UpdateBookEntryScreen";
+    	}
+    	else{
         		int i=bookService.create(book);
         if(i == 1){
         	System.out.println("created book");
@@ -95,7 +101,7 @@ public class BookController {
         books = bookService.getList(book);
         model.addAttribute("books", books);
         return "BookUserScreen";
-
+    	}
     }
 
     List<Record> recordList = new ArrayList<Record>();

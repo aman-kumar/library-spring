@@ -88,17 +88,19 @@
 					
 
 
-				</table><br>
-				<br>
+				</table>
+				<br><br>
 				 <%
  	if (bookAvailable) {
- %> <br> <br> <br> The book can be issued <br> <br>
+ %> 
+ <br><br><br><br><br><br>
+ Book can be issued <br> <br>
 				<button type="submit">IssueBook</button>
 				<%
  	} else {
- %><br><br>
- <br>
-  The book cannot be issued <br> 
+ %>
+ <br><br><br>
+  Book cannot be issued <br> 
  <%
  	}
 				 }

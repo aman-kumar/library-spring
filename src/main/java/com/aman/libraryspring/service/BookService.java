@@ -29,6 +29,9 @@ public class BookService {
 	public List<Book> enteredBook(Book book){
 		return bookDao.getEnteredBook(book);
 	}  
+	public List<Book> findBookList(Book book){
+		return bookDao.findBook(book);
+	}
 	public List<Book> getList(Book book) {
 		//return bookDao.listBook();
 		return bookDao.getEnteredBook(book);
