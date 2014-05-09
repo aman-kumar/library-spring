@@ -45,7 +45,7 @@
 				<table align="left" width="2" border="3" bordercolor="black">
 					<tr>
 						<th width="15%">BookRecordId</th>
-					<!-- <th width="15%">BookId</th> -->
+					<!--   <th width="15%">BookId</th>-->
 						<th width="15%">Status</th>
 						<th width="15%">StudentId</th>
 					</tr>
@@ -68,7 +68,7 @@
 							<td width="15%"><input type="radio"
 								name=<%=record.getBookRecord()%> value=><%=record.getBookRecord()%>
 							</td>
-						<!-- <td width="15%"></td> -->
+					<!--  	<td width="15%"></td>--> 
 							<td width="15%"><%=record.getStatus()%></td>
 							<td width="15%"><%=record.getStudentId()%></td>
 

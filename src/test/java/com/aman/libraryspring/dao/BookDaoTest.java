@@ -18,6 +18,8 @@ public class BookDaoTest {
     Book book = new Book();
     Book book2 = new Book();
     Book book3=new Book();
+    Book book4=new Book();
+    
     @BeforeClass
     public static void setUp() throws Exception {
         DbConfiguration.populateSqls("test-schema.sql");
@@ -108,6 +110,26 @@ public class BookDaoTest {
     	assertNotSame(book3.getBookId(),bookDao.getEnteredBook(book3).get(0).getBookId());
     	
     }
+    
+    @Test
+    public void testsearchBookById(){
+    	System.out.println("test for updateBookCopies");
+    	book4.setName("book");
+    	book4.setCopies(2);
+    	book4.setAuthor("book");
+    	book4.setDescription("book");
+    	book4.setPublisher("book");
+    	bookDao.createBook(book4);
+    	System.out.println("BookId: "+bookDao.getEnteredBook(book4).get(0).getBookId());
+    	System.out.println("BookName : "+bookDao.searchBookById(bookDao.getEnteredBook(book4).get(0).getBookId()).get(0).getName());
+    	System.out.println("Copies : "+bookDao.searchBookById(bookDao.getEnteredBook(book4).get(0).getBookId()).get(0).getCopies());
+    	assertEquals("book", bookDao.searchBookById(bookDao.getEnteredBook(book4).get(0).getBookId()).get(0).getName());
+    	bookDao.updateBookCopies(5, 3);
+    	System.out.println("Copies : "+bookDao.searchBookById(bookDao.getEnteredBook(book4).get(0).getBookId()).get(0).getCopies());
+    	assertEquals(5, bookDao.searchBookById(bookDao.getEnteredBook(book4).get(0).getBookId()).get(0).getCopies());
+    }
+    //updateBookCopies(int bookId, int copies) {
+    
     @AfterClass
     public static void tearDown() throws Exception {
         DbConfiguration.tearDownSchema();

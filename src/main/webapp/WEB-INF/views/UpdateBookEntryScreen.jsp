@@ -7,65 +7,51 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+function No() {
+	 window.location="http://localhost:8080/library-spring/";
+		
+}
+</script>
 </head>
 <body>
-<table border="0">
-<tr>
-<td>
-		<table align="left" width="2" border="3" bordercolor="black">
+<table align="left" border="0">
 		<tr>
-			<th width="35%"><a href="StudentDetailsEnterForm">StudentEntryPage</a></th>
+			<table align="left" width="2" border="3" bordercolor="black">
+				<tr>
+					<th width="35%"><a href="StudentDetailsEnterForm">StudentEntryPage</a></th>
+					<th width="35%"><a href="SearchBookForm">SearchBook</a><br></th>
+					<th width="35%"><a href="BookEntryPage">BookEntry</a><br></th>
+				</tr>
+				</tr>
+				</table>
 
 
-			<th width="35%"><a href="SearchBookForm">SearchBook</a><br></th>
-
-
-			<th width="35%"><a href="BookEntryPage">BookEntry</a><br></th>
-		</tr>
-		
-	</table>
-	<!--  
-	</td>
+	</td>		
 	</tr>
-	<tr>
-	<td>
-	<table align="left" width="2" border="2" bordercolor="black">
-		<caption>
-			<h2>Books present in the library</h2>
-		</caption>
-		<tr>
-			<th width="15%">BookId</th>
-			<th width="15%">Name</th>
-			<th width="15%">Author</th>
-			<th width="15%">Publication</th>
-			<th width="15%">Description</th>
-			<th width="15%">Copies</th>
-		</tr>
-		<%
-		//	List<Book> bookList = new ArrayList<Book>();
-			//bookList = (ArrayList<Book>) request.getAttribute("books");
-			//Iterator<Book> itr = bookList.iterator();
-			//while (itr.hasNext()) {
-				//Book book = (Book) itr.next();
-		%>
-	
-		</tr>
-		<%
-			//}
-		%>
 
-	</table>
-	</td>
-	</tr>
-	</table>
-	-->
-	
+	<form  action="Update">
 	<%
 			List<Book> bookList = new ArrayList<Book>();
 			bookList = (ArrayList<Book>) request.getAttribute("updateBook");
 			Book book=bookList.get(0);
+			session.setAttribute("name", request.getAttribute("updateBook"));
 		%>
 		<br><br>
 		<b>Book: <%=book.getName()%> is already present,Do you want to update it? <b><br><br>
+		<%=book.getBookId() %>
+		<%
+		if(bookList.size()>0){
+			
+	%>
+	    <input type="hidden" name="bookId" value="<%=book.getBookId()%>"/>
+		<button type="submit">Yes</button>
+		<button type="button" onclick="No()" >No</button>  
+		   
+	<%
+		}
+	%>	
+</form>
 </body>
 </html>

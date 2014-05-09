@@ -36,5 +36,12 @@ public class BookService {
 		//return bookDao.listBook();
 		return bookDao.getEnteredBook(book);
 	}
-
+	public List<Book> getBookById(int bookId){
+	 return bookDao.searchBookById(bookId); 
+	
+	}
+	
+	public int updateBook(int bookId,int copies){
+		return bookDao.updateBookCopies(bookId, copies);
+	}
 }

@@ -7,6 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-Hi aman welcome this stuff is creating lot of Problem!
+<table align="left" border="0">
+		<tr>
+			<table align="left" width="2" border="3" bordercolor="black">
+				<tr>
+					<th width="35%"><a href="StudentDetailsEnterForm">StudentEntryPage</a></th>
+					<th width="35%"><a href="SearchBookForm">SearchBook</a><br></th>
+					<th width="35%"><a href="BookEntryPage">BookEntry</a><br></th>
+				</tr>
+				</tr>
+				</table>
+				<br><br>
+Book has been updated Successfully
 </body>
 </html>

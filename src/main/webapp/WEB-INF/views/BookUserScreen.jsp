@@ -66,6 +66,6 @@
 			Book book=bookList.get(0);
 		%>
 		<br><br>
-		<b>Book: <%=book.getName()%> has been successfully inserted.<b><br><br> 
+		<b>" <%=book.getName()%>"  has been successfully inserted.<b><br><br> 
 </body>
 </html>
