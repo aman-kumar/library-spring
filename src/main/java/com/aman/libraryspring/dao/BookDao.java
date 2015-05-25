@@ -105,7 +105,7 @@ public class BookDao implements BookDAO {
 		int i = jdbcTemplate.update(
 				"update Book set noOfCopies = ? where bookId = ?",
 				updatedCopies, bookId);
-return i;
+		return i;
 	}
 
 }

@@ -12,14 +12,15 @@ import com.aman.libraryspring.ApplicationConstants;
 public class ConnectionUtils {
 	public ConnectionUtils() {
 	}
-	
+
 	public DataSource getDataSource() {
 		Driver driver = null;
 		try {
-			String driverName = ApplicationConfiguration.INSTANCE.getValue(ApplicationConstants.JDBC_DRIVERNAME);
-			System.out.println("The driver name is:"+driverName);
+			String driverName = ApplicationConfiguration.INSTANCE
+					.getValue(ApplicationConstants.JDBC_DRIVERNAME);
+			System.out.println("The driver name is:" + driverName);
 			Class<?> driverClass = Class.forName(driverName);
-			driver = (Driver)driverClass.newInstance();
+			driver = (Driver) driverClass.newInstance();
 		} catch (InstantiationException e) {
 			throw new IllegalStateException(e);
 		} catch (IllegalAccessException e) {
@@ -27,8 +28,9 @@ public class ConnectionUtils {
 		} catch (ClassNotFoundException e) {
 			throw new IllegalStateException(e);
 		}
-        DataSource dataSource = new SimpleDriverDataSource(driver,
-        		ApplicationConfiguration.INSTANCE.getValue(ApplicationConstants.JDBC_URL)+"; user=SA");
+		DataSource dataSource = new SimpleDriverDataSource(driver,
+				ApplicationConfiguration.INSTANCE
+						.getValue(ApplicationConstants.JDBC_URL) + "; user=SA");
 		return dataSource;
 	}
 }

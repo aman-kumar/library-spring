@@ -26,19 +26,16 @@ public class SearchBookService {
 	public void setRecordDao(RecordDao recordDao) {
 		this.recordDao = recordDao;
 	}
-/*
+
+	List<Record> list = new ArrayList<Record>();
+
 	public List<Record> search(Book book) {
-		return recordDao.getRecordList(bookDao.searchBook(book));
-	}
-	*/
-	List<Record> list=new ArrayList<Record>();
-	public List<Record> search(Book book) {
-		
-		if((book.getAuthor() == "") && (book.getName() == "") ){
+
+		if ((book.getAuthor() == "") && (book.getName() == "")) {
 			return recordDao.listRecord();
-		}else{
+		} else {
 			return recordDao.getRecordList(bookDao.searchBook(book));
 		}
-		
+
 	}
 }

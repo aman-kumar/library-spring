@@ -46,7 +46,7 @@ public class BookServiceTest {
 		when(bookDao.getEnteredBook(mockedBook2)).thenReturn(bookList);
 		List<Book> resultList = service.getList(mockedBook2);
 		assertNotNull("list should not be null", resultList);
-		
+
 		verify(bookDao).getEnteredBook(mockedBook2);
 	}
 }

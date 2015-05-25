@@ -18,28 +18,27 @@ import com.aman.libraryspring.service.IssueService;
 @Controller
 public class IssueController {
 
-    @Autowired
-    private IssueService issueService;
+	@Autowired
+	private IssueService issueService;
 
-    @RequestMapping(value = "/Issue", method = RequestMethod.GET)
-    public ModelAndView handleRequest() {
+	@RequestMapping(value = "/Issue", method = RequestMethod.GET)
+	public ModelAndView handleRequest() {
 
-        return new ModelAndView("Issue", "command", new StudentRecordCombo());
+		return new ModelAndView("Issue", "command", new StudentRecordCombo());
 
-    }
+	}
 
-    List<Record> recordList = new ArrayList<Record>();
+	List<Record> recordList = new ArrayList<Record>();
 
-    @RequestMapping(value = "issueBook", method = RequestMethod.POST)
-    public String issueBook(@ModelAttribute StudentRecordCombo combo,
-            Model model) {
-        issueService.createRecord(combo.getRecord());
-        issueService.searchStudent(combo.getStudent());
-        issueService.updateRecord();
-        recordList = issueService.getUpdatedRecord();
-        model.addAttribute("recordList", recordList);
-        return "IssueDetails";
-    }
+	@RequestMapping(value = "issueBook", method = RequestMethod.POST)
+	public String issueBook(@ModelAttribute StudentRecordCombo combo,
+			Model model) {
+		issueService.createRecord(combo.getRecord());
+		issueService.searchStudent(combo.getStudent());
+		issueService.updateRecord();
+		recordList = issueService.getUpdatedRecord();
+		model.addAttribute("recordList", recordList);
+		return "IssueDetails";
+	}
 
 }
-// StudentRecordCombo combo
